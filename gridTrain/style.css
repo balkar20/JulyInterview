@@ -99,10 +99,25 @@ img {
     margin: auto;
     width: 80%;
     height: fit-content;
-    background: black;
-    opacity: 0.3;
+    background: #252525;
+    /* opacity: 0.3; */
 }
 
+div.frame{
+    width: 200px;
+    height: 200px;
+    color: #d6d6d6;
+    font-weight: bold;
+    position: relative;
+}
+
+.frameImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%; 
+    height:100%; 
+}
 
 /*Items*/
 
