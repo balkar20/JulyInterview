@@ -81,7 +81,6 @@ let arr = [{
 
 let EllArr = [];
 arr.forEach((el) => {
-    
     var img = $(`<img src=${el.url}>`).addClass("frameImg");
     var info = $(`
     <div class="info">
@@ -94,3 +93,22 @@ arr.forEach((el) => {
     </div>`).addClass("frame").append(img).append(info);
     $(".container").append(domEl);
 });
+
+// arr.forEach((el) => {
+//     var imageContainer = $(`
+//     <div>
+//     </div>`).addClass("imgBox");
+//     var img = $(`<img src=${el.url}>`).addClass("frameImg");
+
+//     imageContainer.add(img);
+
+//     var info = $(`
+//     <div class="info">
+//         <span class="model">Модель: <span class="val">${el.name}</span></span>
+//         <span class="price">Цена: <span class="val">${el.price}</span></span>
+//         <a href="#" class="more">Подробнее..</a>
+//     </div>`);
+//     var domEl = $(`
+//     <div>
+//     </div>`).addClass("frame").append(info).append(imageContainer);
+//     $(".container").append(domEl);
