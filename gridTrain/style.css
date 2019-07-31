@@ -1,5 +1,5 @@
 body {
-    background: url(./model10.jpg) no-repeat;
+    background: url("./k.jpg") no-repeat;
     background-size: 100% 100%;
     margin: 0;
     min-height: 100vh;
@@ -148,6 +148,7 @@ img {
 frame {
     display: grid;
     grid-auto-columns: 1fr 1fr;
+    position: relative;
     color: #d6d6d6;
     font-weight: bold;
     text-align: center;
@@ -157,11 +158,17 @@ frame {
 }
 
 .frame .info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     padding: 3px;
     color: ghostwhite;
     background-color: rgba(68, 21, 4, 0.74);
 }
 
+.imgBox{
+    
+}
 .frameImg {
     display: inline-block;
     padding: 3px;
