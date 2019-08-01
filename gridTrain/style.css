@@ -1,5 +1,5 @@
 body {
-    background: url("./k.jpg") no-repeat;
+    background: #1a1a1a;
     background-size: 100% 100%;
     margin: 0;
     min-height: 100vh;
@@ -7,12 +7,16 @@ body {
     position: relative;
 }
 
+.middle {
+    margin: 10px auto;
+    width: 80%;
+}
+
 
 /*Header*/
 
 header {
     width: 100%;
-    height: 150px;
     background: blue;
     margin: 50px auto 0;
     background-color: rgba(72, 72, 72, 0.7);
@@ -20,6 +24,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-gap: 2vw;
+    border-bottom: 5px solid red;
     /* width: 100%;
     margin: 0;
     opacity: 0.9;
@@ -48,7 +53,7 @@ nav.top {
     top: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
     grid-gap: 1em;
     align-items: center;
@@ -85,13 +90,8 @@ nav.top>div a:hover {
     grid-column: 3;
 }
 
-img {
-    width: 100%;
-    /* Ширина изображений */
-    height: 100%;
-    /* Высота изображении */
-    object-fit: cover;
-    /* Вписываем фотографию в область */
+.link4 {
+    grid-column: 4;
 }
 
 .tel {
@@ -113,10 +113,10 @@ img {
 }
 
 #title {
-    font-weight: 800;
-    display: inline-block;
-    font-size: 200%;
-    color: #fb0b0b;
+    grid-column-start: 2;
+    max-width: 100%;
+    height: auto;
+    /* color: #fb0b0b; */
 }
 
 #titleDescr {
@@ -127,18 +127,43 @@ img {
 /*Header*/
 
 
+/*PhotosLine*/
+
+.present {
+    height: 300px;
+    background-image: url("./Pictures/wetRug.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    justify-content: find; */
+}
+
+.tit {
+    font-size: x-large;
+    color: navajowhite;
+    display: block;
+    margin: auto;
+    /* margin-top: 50px; */
+    width: 80%;
+    text-align: center;
+}
+
+
+/*PhotosLine*/
+
+
 /*Items*/
 
 .content {
-    margin: 50px auto 0;
-    width: 80%;
     height: fit-content;
+    border: 2px solid #3c2f2f;
     /* opacity: 0.3; */
 }
 
 .container {
-    background-color: rgba(68, 21, 4, 0.74);
-    ;
+    background-color: rgba(33, 32, 32, 0.74);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -166,9 +191,8 @@ frame {
     background-color: rgba(68, 21, 4, 0.74);
 }
 
-.imgBox{
-    
-}
+.imgBox {}
+
 .frameImg {
     display: inline-block;
     padding: 3px;
