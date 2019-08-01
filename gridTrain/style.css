@@ -170,7 +170,7 @@ nav.top>div a:hover {
     border:2px solid rgba(255,255,255,.5);
 	font-size:1.75em;
 	padding:.25em .5em .3125em;
-	color:rgba(255,255,255,.5);
+    color: azure;
 	border-radius:.25em;
 	background:transparent;
 	transition:all .100s;
