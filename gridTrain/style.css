@@ -150,7 +150,21 @@ nav.top>div a:hover {
     text-align: center;
 }
 
+.form-container{
+    
+}
+.form-head{
+    
+    width: 20%;
+    margin: auto;
+}
 
+.head-input{
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
 /*PhotosLine*/
 
 
