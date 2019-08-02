@@ -101,9 +101,13 @@ let labelsArr = [
     "land_rover.png",
 ]
 let EllArr = [];
-arr.forEach((el, i) => {
+console.log(labelsArr);
+
+labelsArr.forEach((el, i) => {
     var a = $(`<a href="" class="image-container"></a>`);
     var img = $(`<img src="./Pictures/autoLabels/${labelsArr[i]}" alt="no image">`).addClass("label");
+    console.log(labelsArr[i]);
+
     a.append(img);
     $(".labels").append(a);
 });
