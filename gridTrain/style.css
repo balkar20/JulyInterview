@@ -321,7 +321,7 @@ nav.top>div a:hover {
 .labels {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: repeat(5, 100px);
+    /* grid-template-rows: repeat(5, 100px); */
     grid-column-gap: 5px;
     margin-top: 20px;
     background: #20211f;

@@ -79,20 +79,34 @@ let arr = [{
     },
 ];
 
-// let EllArr = [];
-// arr.forEach((el) => {
-//     var img = $(`<img src=${el.url}>`).addClass("frameImg");
-//     var info = $(`
-//     <div class="info">
-//         <span class="model">Модель: <span class="val">${el.name}</span></span>
-//         <span class="price">Цена: <span class="val">${el.price}</span></span>
-//         <a href="#" class="more">Подробнее..</a>
-//     </div>`);
-//     var domEl = $(`
-//     <div>
-//     </div>`).addClass("frame").append(img).append(info);
-//     $(".container").append(domEl);
-// });
+
+let labelsArr = [
+    "audi.png",
+    "bmw.png",
+    "chevrolet.png",
+    "chrysler.png",
+    "citroen.png",
+    "dodge.png",
+    "fiat.png",
+    "ford.png",
+    "geely.png",
+    "honda.png",
+    "hummer.png",
+    "hyundai.png",
+    "hyundai.png",
+    "iveco.png",
+    "jaguar.png",
+    "jeep.png",
+    "kamaz.png",
+    "land_rover.png",
+]
+let EllArr = [];
+arr.forEach((el, i) => {
+    var a = $(`<a href="" class="image-container"></a>`);
+    var img = $(`<img src="./Pictures/autoLabels/${labelsArr[i]}" alt="no image">`).addClass("label");
+    a.append(img);
+    $(".labels").append(a);
+});
 
 // arr.forEach((el) => {
 //     var imageContainer = $(`
