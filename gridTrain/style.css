@@ -150,55 +150,55 @@ nav.top>div a:hover {
     text-align: center;
 }
 
-.form-container{
+.form-container {
     height: 80%;
     display: flex;
     align-items: center;
 }
-.form-head{
-    
+
+.form-head {
     width: 20%;
     margin: auto;
 }
 
-.head-input{
+.head-input {
     margin-bottom: 5px;
     text-align: center;
     display: block;
     box-sizing: border-box;
     width: 100%;
-    border:2px solid rgba(255,255,255,.5);
-	font-size:1.75em;
-	padding:.25em .5em .3125em;
+    border: 2px solid rgba(255, 255, 255, .5);
+    font-size: 1.75em;
+    padding: .25em .5em .3125em;
     color: azure;
-	border-radius:.25em;
-	background:transparent;
-	transition:all .100s;
+    border-radius: .25em;
+    background: transparent;
+    transition: all .100s;
 }
 
-.headbutton{
+.headbutton {
     position: relative;
-  display: inline-block;
-  font-size: 100%;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: #053852 -1px 1px, #053852 1px 1px, #053852 1px -1px, #053852 -1px -1px;
-  text-decoration: none;
-  user-select: none;
-  padding: .3em .7em;
-  outline: none;
-  border-radius: 7px;
-  background: #053852 repeating-linear-gradient(135deg, #053852, #053852 10px, #1679ad 10px, #1679ad 20px, #053852 20px);
-  box-shadow:
-   inset -2px -2px rgba(0,0,0,.3),
-   inset 2px 2px rgba(255,255,255,.3);
-  transition: background-position 999999s, color 999999s, text-shadow 999999s;
+    display: inline-block;
+    font-size: 100%;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: #053852 -1px 1px, #053852 1px 1px, #053852 1px -1px, #053852 -1px -1px;
+    text-decoration: none;
+    user-select: none;
+    padding: .3em .7em;
+    outline: none;
+    border-radius: 7px;
+    background: #053852 repeating-linear-gradient(135deg, #053852, #053852 10px, #1679ad 10px, #1679ad 20px, #053852 20px);
+    box-shadow: inset -2px -2px rgba(0, 0, 0, .3), inset 2px 2px rgba(255, 255, 255, .3);
+    transition: background-position 999999s, color 999999s, text-shadow 999999s;
 }
 
-.headbutton:hover{
+.headbutton:hover {
     cursor: pointer;
     opacity: 0.8;
 }
+
+
 /*PhotosLine*/
 
 
@@ -209,15 +209,114 @@ nav.top>div a:hover {
     /* opacity: 0.3; */
 }
 
-.container {
-    background-color: rgba(33, 32, 32, 0.74);
+.description {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 2vw;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0.5vw;
 }
 
-frame {
+.advantage-title {
+    display: block;
+    grid-column-start: 2;
+    margin: 5px auto;
+    color: #c2d895;
+    font-size: xx-large;
+    font-family: cursive;
+}
+
+.describe.start {
+    color: #c2d895;
+    font-size: larger;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.describe.end {
+    color: #e91e63;
+    font-size: larger;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.termo {
+    color: aqua;
+}
+
+.advlist.item {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: left;
+    font-size: large;
+    color: #fff;
+}
+
+.itemIco {
+    color: aqua;
+}
+
+
+/*COOLS-GRID*/
+
+.cools {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 0.5fr;
+    grid-column-gap: 5px;
+}
+
+.frame {
+    height: 200px;
+    background-size: cover;
+    position: relative;
+    /* Фон занимает всю доступную площадь */
+}
+
+.first {
+    background-image: url("./Pictures/advanteges/protection.jpg");
+}
+
+.second {
+    background-image: url("./Pictures/advanteges/safety.jpg");
+}
+
+.third {
+    background-image: url("./Pictures/advanteges/exploitation.jpg");
+}
+
+.fourth {
+    background-image: url("./Pictures/advanteges/esthetics.jpg");
+}
+
+.first-info {
+    color: white;
+    font-family: cursive;
+    text-align: center;
+    border: 1px solid #5f4116;
+    border-top: 2px solid blue;
+}
+
+.frame-title {
+    display: inline-block;
+    background: #ffc51682;
+    text-align: center;
+    font-size: 3vw;
+    white-space: nowrap;
+    font-style: unset;
+    font-family: fantasy;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: #0f3a11;
+}
+
+
+/*COOLS-GRID*/
+
+
+/* frame {
     display: grid;
     grid-auto-columns: 1fr 1fr;
     position: relative;
@@ -237,8 +336,6 @@ frame {
     color: ghostwhite;
     background-color: rgba(68, 21, 4, 0.74);
 }
-
-.imgBox {}
 
 .frameImg {
     display: inline-block;
@@ -267,7 +364,7 @@ frame {
     grid-column-start: 2;
     grid-row-end: 3;
     grid-column-end: 2;
-}
+} */
 
 
 /*Items*/
