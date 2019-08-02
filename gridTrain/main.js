@@ -93,7 +93,7 @@ let labelsArr = [
     "honda.png",
     "hummer.png",
     "hyundai.png",
-    "hyundai.png",
+    "subaru.png",
     "iveco.png",
     "jaguar.png",
     "jeep.png",
