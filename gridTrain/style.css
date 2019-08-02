@@ -316,6 +316,31 @@ nav.top>div a:hover {
 /*COOLS-GRID*/
 
 
+/*LABELS*/
+
+.labels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: repeat(5, 100px);
+    grid-column-gap: 5px;
+    margin-top: 20px;
+    background: #20211f;
+}
+
+.image-container {
+    height: 100px;
+    display: block;
+    margin: auto;
+}
+
+label {
+    size: 100%;
+}
+
+
+/*LABELS*/
+
+
 /* frame {
     display: grid;
     grid-auto-columns: 1fr 1fr;
