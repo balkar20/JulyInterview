@@ -109,7 +109,7 @@ labelsArr.forEach((el, i) => {
     console.log(labelsArr[i]);
 
     a.append(img);
-    $(".labels").append(a);
+    $(".lebel-box").append(a);
 });
 
 // arr.forEach((el) => {

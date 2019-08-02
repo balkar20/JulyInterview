@@ -322,11 +322,22 @@ nav.top>div a:hover {
     /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-column-gap: 5px; */
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
     margin-top: 20px;
     background: #20211f;
+}
+
+.labels-title {
+    display: block;
+    margin: 5px auto;
+    width: 80%;
+    text-align: center;
+    color: #ff3f3f;
+    font-family: cursive;
+    font-weight: 500;
+    font-size: x-large;
 }
 
 .image-container {
@@ -334,8 +345,11 @@ nav.top>div a:hover {
     margin: auto;
 }
 
-label {
-    size: 100%;
+.lebel-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 
