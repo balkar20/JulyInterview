@@ -62,6 +62,7 @@ nav.top {
     height: 50px;
     margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 4;
 }
 
 nav.top>div a {
@@ -234,6 +235,7 @@ nav.top>div a:hover {
 }
 
 .describe.end {
+    margin: 20px auto;
     color: #e91e63;
     font-size: larger;
     grid-column-start: 1;
@@ -482,6 +484,7 @@ footer {
     color: aliceblue;
     font-weight: 600;
     font-family: cursive;
+    margin-top: 20px;
 }
 
 .bottom.menu {
@@ -492,10 +495,33 @@ footer {
     grid-column-start: 2;
 }
 
+.contact-wrapper{
+margin-top: 20px;
+}
+
+.bot-contact{
+    display: block;
+    text-align: center;
+}
+
+.wrap-phones{
+    color: #c2d895;
+}
+.wrap-mails{
+    color: #cf6d1c;
+}
+
+.vk-img{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
 .callyou-container{
     position: absolute;
     top: 20%;
 }
+
 .bottom.callyou {
     position: relative;
     
