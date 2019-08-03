@@ -32,22 +32,6 @@ header {
     background-color: rgba(0, 0, 0, 0.7) */
 }
 
-.gk {
-    padding: .5em;
-    align-content: center;
-    text-align: center;
-}
-
-.gk.one {
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-
-.gk.two {
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
-
 nav.top {
     position: fixed;
     top: 0;
