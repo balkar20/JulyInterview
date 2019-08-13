@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWordAddIn", "FirstWord
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDynamicControls", "WordDynamicControls\WordDynamicControls.csproj", "{F595FB46-1FFD-4AB6-B303-A67E37715D70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDocument1", "WordDocument1\WordDocument1.csproj", "{72A3308F-A0CA-4D86-831A-C9996A85AAB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F595FB46-1FFD-4AB6-B303-A67E37715D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F595FB46-1FFD-4AB6-B303-A67E37715D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F595FB46-1FFD-4AB6-B303-A67E37715D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
