@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDynamicControls", "Word
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDocument1", "WordDocument1\WordDocument1.csproj", "{72A3308F-A0CA-4D86-831A-C9996A85AAB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointFirst", "PowerPointFirst\PowerPointFirst.csproj", "{586EA968-F773-4D69-8200-EFF31752D1FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSyncTaskPanelWithRibbon", "ExcelSyncTaskPanelWithRibbon\ExcelSyncTaskPanelWithRibbon.csproj", "{53EEDA99-6AA3-4461-AE3B-F63800D4D62B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72A3308F-A0CA-4D86-831A-C9996A85AAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586EA968-F773-4D69-8200-EFF31752D1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586EA968-F773-4D69-8200-EFF31752D1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586EA968-F773-4D69-8200-EFF31752D1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586EA968-F773-4D69-8200-EFF31752D1FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53EEDA99-6AA3-4461-AE3B-F63800D4D62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53EEDA99-6AA3-4461-AE3B-F63800D4D62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53EEDA99-6AA3-4461-AE3B-F63800D4D62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53EEDA99-6AA3-4461-AE3B-F63800D4D62B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

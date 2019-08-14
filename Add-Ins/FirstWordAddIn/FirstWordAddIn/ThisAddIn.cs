@@ -11,6 +11,9 @@ namespace FirstWordAddIn
 {
     public partial class ThisAddIn
     {
+        private MyUserControl myUserControl1;
+        private Microsoft.Office.Tools.CustomTaskPane myCustomTaskPane;
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             this.Application.DocumentBeforeSave +=
@@ -23,8 +26,11 @@ namespace FirstWordAddIn
 
         void Application_DocumentBeforeSave(Word.Document Doc, ref bool SaveAsUI, ref bool Cancel)
         {
-            Doc.Paragraphs[1].Range.InsertParagraphBefore();
-            Doc.Paragraphs[1].Range.Text = "This text was added by using code.";
+            //Doc.Paragraphs[1].Range.InsertParagraphBefore();
+            //Doc.Paragraphs[1].Range.Text = "This text was added by using code.";
+            myUserControl1 = new MyUserControl();
+            myCustomTaskPane = this.CustomTaskPanes.Add(myUserControl1, "My Task Pane");
+            myCustomTaskPane.Visible = true;
         }
         #region VSTO generated code
 
