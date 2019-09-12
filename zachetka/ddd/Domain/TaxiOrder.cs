@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
+using Ddd.Infrastructure.Domain;
 
 namespace Ddd.Taxi.Domain
 {
@@ -13,12 +14,9 @@ namespace Ddd.Taxi.Domain
 		{
 			if (driverId == 15)
 			{
-				order.DriverId = driverId;
-				order.DriverFirstName = "Drive";
-				order.DriverLastName = "Driverson";
-				order.CarModel = "Lada sedan";
-				order.CarColor = "Baklazhan";
-				order.CarPlateNumber = "A123BT 66";
+				order.AssignDriver(new Driver(driverId, 
+				    new PersonName( "Drive", "Driverson"), 
+				    new Car("Baklazhan","Lada sedan", "A123BT 66")));
 			}
 			else
 				throw new Exception("Unknown driver id " + driverId);
@@ -39,62 +37,40 @@ namespace Ddd.Taxi.Domain
 
 		public TaxiOrder CreateOrderWithoutDestination(string firstName, string lastName, string street, string building)
 		{
-			return
-				new TaxiOrder
-				{
-					Id = idCounter++,
-					ClientFirstName = firstName,
-					ClientLastName = lastName,
-					StartStreet = street,
-					StartBuilding = building,
-					CreationTime = currentTime()
-				};
+		    return
+		        new TaxiOrder(idCounter++,
+		            new PersonName(firstName, lastName),
+		            new Address(street, building),
+		            currentTime());
 		}
 
 		public void UpdateDestination(TaxiOrder order, string street, string building)
 		{
-			order.DestinationStreet = street;
-			order.DestinationBuilding = building;
+		    order.UpdateDestination(street, building);
 		}
 
 		public void AssignDriver(TaxiOrder order, int driverId)
 		{
 			driversRepo.FillDriverToOrder(driverId, order);
-			order.DriverAssignmentTime = currentTime();
-			order.Status = TaxiOrderStatus.WaitingCarArrival;
+			order.AssignDriver(new Driver(driverId,
+			    new PersonName("Drive", "Driverson"),
+			    new Car("Baklazhan", "Lada sedan", "A123BT 66")));
 		}
 
 		public void UnassignDriver(TaxiOrder order)
 		{
-			order.DriverFirstName = null;
-			order.DriverLastName = null;
-			order.CarModel = null;
-			order.CarColor = null;
-			order.CarPlateNumber = null;
-			order.Status = TaxiOrderStatus.WaitingForDriver;
+			order.UnassignDriver();
 		}
 
 		public string GetDriverFullInfo(TaxiOrder order)
 		{
 			if (order.Status == TaxiOrderStatus.WaitingForDriver) return null;
-			return string.Join(" ",
-				"Id: " + order.DriverId,
-				"DriverName: " + FormatName(order.DriverFirstName, order.DriverLastName),
-				"Color: " + order.CarColor,
-				"CarModel: " + order.CarModel,
-				"PlateNumber: " + order.CarPlateNumber);
+		    return order.GetDriverFullInfo();
 		}
 
 		public string GetShortOrderInfo(TaxiOrder order)
 		{
-			return string.Join(" ",
-				"OrderId: " + order.Id,
-				"Status: " + order.Status,
-				"Client: " + FormatName(order.ClientFirstName, order.ClientLastName),
-				"Driver: " + FormatName(order.DriverFirstName, order.DriverLastName),
-				"From: " + FormatAddress(order.StartStreet, order.StartBuilding),
-				"To: " + FormatAddress(order.DestinationStreet, order.DestinationBuilding),
-				"LastProgressTime: " + GetLastProgressTime(order).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+		    return order.GetShortOrderInfo();
 		}
 
 		private DateTime GetLastProgressTime(TaxiOrder order)
@@ -107,55 +83,120 @@ namespace Ddd.Taxi.Domain
 			throw new NotSupportedException(order.Status.ToString());
 		}
 
-		private string FormatName(string firstName, string lastName)
-		{
-			return string.Join(" ", new[] { firstName, lastName }.Where(n => n != null));
-		}
-
-		private string FormatAddress(string street, string building)
-		{
-			return string.Join(" ", new[] { street, building }.Where(n => n != null));
-		}
-
 		public void Cancel(TaxiOrder order)
 		{
-			order.Status = TaxiOrderStatus.Canceled;
-			order.CancelTime = currentTime();
+			order.Cancel();
 		}
 
 		public void StartRide(TaxiOrder order)
 		{
-			order.Status = TaxiOrderStatus.InProgress;
-			order.StartRideTime = currentTime();
+			order.StartRide();
 		}
 
 		public void FinishRide(TaxiOrder order)
 		{
-			order.Status = TaxiOrderStatus.Finished;
-			order.FinishRideTime = currentTime();
+            order.FinishRide();
 		}
 	}
 
 	public class TaxiOrder
 	{
-		public int Id;
-		public string ClientFirstName;
-		public string ClientLastName;
-		public string StartStreet;
-		public string StartBuilding;
-		public string DestinationStreet;
-		public string DestinationBuilding;
-		public int DriverId;
-		public string DriverFirstName;
-		public string DriverLastName;
-		public string CarColor;
-		public string CarModel;
-		public string CarPlateNumber;
-		public TaxiOrderStatus Status;
-		public DateTime CreationTime;
-		public DateTime DriverAssignmentTime;
-		public DateTime CancelTime;
-		public DateTime StartRideTime;
-		public DateTime FinishRideTime;
-	}
+	    public TaxiOrder(int id, PersonName clientName, Address startAddress, DateTime creationTime)
+	    {
+	        Id = id;
+	        ClientName = clientName;
+	        StartAddress = startAddress;
+	        CreationTime = creationTime;
+	    }
+
+	    public int Id { get; }
+		public PersonName ClientName { get;  }
+        public Address StartAddress { get;}
+        public Address DestinationAddress { get; private set; }
+        public Driver Driver { get; private set; }
+        public TaxiOrderStatus Status { get; private set; }
+        public DateTime CreationTime { get; private set; }
+        public DateTime DriverAssignmentTime { get; private set; }
+        public DateTime CancelTime { get; private set; }
+        public DateTime StartRideTime { get; private set; }
+        public DateTime FinishRideTime { get; private set; }
+
+	    public void AssignDriver(Driver driver)
+	    {
+	        this.Driver = driver;
+	        Status = TaxiOrderStatus.WaitingCarArrival;
+	    }
+
+	    public void UnassignDriver()
+	    {
+	        Driver = null;
+	        Status = TaxiOrderStatus.WaitingForDriver;
+	    }
+
+        public void UpdateDestination(string street, string building)
+	    {
+	        DestinationAddress = new Address(street, building);
+	    }
+
+	    public string GetDriverFullInfo()
+	    {
+	        if (Status == TaxiOrderStatus.WaitingForDriver) return null;
+	        return string.Join(" ",
+	            "Id: " + Driver.Id,
+	            "DriverName: " + FormatName(Driver.PersonName.FirstName, Driver.PersonName.LastName),
+	            "Color: " + Driver.Car.CarColor,
+	            "CarModel: " + Driver.Car.CarModel,
+	            "PlateNumber: " + Driver.Car.CarPlateNumber);
+	    }
+
+	    public string GetShortOrderInfo()
+	    {
+	        return string.Join(" ",
+	            "OrderId: " + Id,
+	            "Status: " + Status,
+	            "Client: " + FormatName(ClientName.FirstName, ClientName.LastName),
+	            "Driver: " + FormatName(Driver.PersonName.FirstName, Driver.PersonName.LastName),
+	            "From: " + FormatAddress(StartAddress.Street, StartAddress.Building),
+	            "To: " + FormatAddress(DestinationAddress.Street, DestinationAddress.Building),
+	            "LastProgressTime: " + GetLastProgressTime().ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+	    }
+
+        private string FormatName(string firstName, string lastName)
+	    {
+	        return string.Join(" ", new[] { firstName, lastName }.Where(n => n != null));
+	    }
+
+	    private string FormatAddress(string street, string building)
+	    {
+	        return string.Join(" ", new[] { street, building }.Where(n => n != null));
+	    }
+
+	    private DateTime GetLastProgressTime()
+	    {
+	        if (Status == TaxiOrderStatus.WaitingForDriver) return CreationTime;
+	        if (Status == TaxiOrderStatus.WaitingCarArrival) return DriverAssignmentTime;
+	        if (Status == TaxiOrderStatus.InProgress) return StartRideTime;
+	        if (Status == TaxiOrderStatus.Finished) return FinishRideTime;
+	        if (Status == TaxiOrderStatus.Canceled) return CancelTime;
+	        throw new NotSupportedException(Status.ToString());
+	    }
+
+	    public void Cancel()
+	    {
+	        Status = TaxiOrderStatus.Canceled;
+	        CancelTime = DateTime.Now;
+	    }
+
+	    public void StartRide()
+	    {
+	        Status = TaxiOrderStatus.InProgress;
+	        StartRideTime = DateTime.Now;
+	    }
+
+	    public void FinishRide()
+	    {
+	        Status = TaxiOrderStatus.Finished;
+	        FinishRideTime = DateTime.Now;
+	    }
+    }
 }

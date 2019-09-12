@@ -7,3 +7,10 @@ C:\Users\user\Downloads\bin\Debug\nunitlite.dll
 C:\Users\user\Downloads\obj\Debug\Ddd.Taxi.csproj.CopyComplete
 C:\Users\user\Downloads\obj\Debug\Ddd.Infrastructure.dll
 C:\Users\user\Downloads\obj\Debug\Ddd.Infrastructure.pdb
+D:\JulyInterview\zachetka\ddd\bin\Debug\Ddd.Infrastructure.dll
+D:\JulyInterview\zachetka\ddd\bin\Debug\Ddd.Infrastructure.pdb
+D:\JulyInterview\zachetka\ddd\obj\Debug\Ddd.Taxi.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\ddd\obj\Debug\Ddd.Taxi.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\ddd\obj\Debug\Ddd.Taxi.csproj.CopyComplete
+D:\JulyInterview\zachetka\ddd\obj\Debug\Ddd.Infrastructure.dll
+D:\JulyInterview\zachetka\ddd\obj\Debug\Ddd.Infrastructure.pdb
