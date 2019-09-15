@@ -1,0 +1,11 @@
+D:\JulyInterview\zachetka\incap1\bin\Debug\ReportMaker.cs
+D:\JulyInterview\zachetka\incap1\bin\Debug\Incapsulation.Failures.exe.config
+D:\JulyInterview\zachetka\incap1\bin\Debug\Incapsulation.Failures.exe
+D:\JulyInterview\zachetka\incap1\bin\Debug\Incapsulation.Failures.pdb
+D:\JulyInterview\zachetka\incap1\bin\Debug\nunit.framework.dll
+D:\JulyInterview\zachetka\incap1\bin\Debug\nunitlite.dll
+D:\JulyInterview\zachetka\incap1\obj\Debug\Incapsulation.Failures.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\incap1\obj\Debug\Incapsulation.Failures.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\incap1\obj\Debug\Incapsulation.Failures.csproj.CopyComplete
+D:\JulyInterview\zachetka\incap1\obj\Debug\Incapsulation.Failures.exe
+D:\JulyInterview\zachetka\incap1\obj\Debug\Incapsulation.Failures.pdb

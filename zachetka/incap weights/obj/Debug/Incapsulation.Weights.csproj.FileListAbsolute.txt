@@ -1,0 +1,10 @@
+D:\JulyInterview\zachetka\incap weights\obj\Debug\Incapsulation.Weights.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\incap weights\obj\Debug\Incapsulation.Weights.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\incap weights\bin\Debug\Incapsulation.Weights.exe.config
+D:\JulyInterview\zachetka\incap weights\bin\Debug\Incapsulation.Weights.exe
+D:\JulyInterview\zachetka\incap weights\bin\Debug\Incapsulation.Weights.pdb
+D:\JulyInterview\zachetka\incap weights\bin\Debug\nunit.framework.dll
+D:\JulyInterview\zachetka\incap weights\bin\Debug\nunitlite.dll
+D:\JulyInterview\zachetka\incap weights\obj\Debug\Incapsulation.Weights.csproj.CopyComplete
+D:\JulyInterview\zachetka\incap weights\obj\Debug\Incapsulation.Weights.exe
+D:\JulyInterview\zachetka\incap weights\obj\Debug\Incapsulation.Weights.pdb
