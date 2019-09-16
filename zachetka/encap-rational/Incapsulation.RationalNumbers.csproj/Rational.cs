@@ -28,6 +28,7 @@ namespace Incapsulation.RationalNumbers
         {
             get { return Denominator == 0 ? true: false; }
         }
+
         public int Numerator { get; set; }
         public int Denominator { get; set; }
 
@@ -68,7 +69,7 @@ namespace Incapsulation.RationalNumbers
             while (a != b)
                 if (a < b) b = b - a;
                 else a = a - b;
-            return (a);
+            return a;
         }
 
         private void _regularize()
@@ -103,23 +104,23 @@ namespace Incapsulation.RationalNumbers
         {
             r1._regularize();
             r2._regularize();
-            return (r1.Numerator == r2.Numerator && r1.Denominator == r2.Denominator);
+            return r1.Numerator == r2.Numerator && r1.Denominator == r2.Denominator;
         }
 
         public static bool operator !=(Rational r1, Rational r2)
         {
-            return (r1 != r2);
+            return r1 != r2;
         }
 
         public static bool operator <(Rational r1, Rational r2)
         {
             r1._fix_denominator(r2);
-            return (r1.Numerator < r2.Numerator);
+            return r1.Numerator < r2.Numerator;
         }
 
         public static bool operator >(Rational r1, Rational r2)
         {
-            return (r2 < r1);
+            return r2 < r1;
         }
 
         public override bool Equals(object obj)
