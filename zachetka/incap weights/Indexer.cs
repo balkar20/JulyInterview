@@ -27,16 +27,15 @@ namespace Incapsulation.Weights
         double[] GetSubArr(double[] arr, int start, int length)
         {
             List<double> newArr = new List<double>();
-            for (int i = 0; i < length; i++)
-            {
-                for (int k = 0; k < arr.Length; k++)
+                for (int i = 0; i < arr.Length; i++)
                 {
-                    if (k >= start && k < arr.Length - (length + start))
+                    int u = arr.Length - length + start;
+                    bool b = i < u;
+                    if (i >= start && b)
                     {
-                        newArr.Add(arr[k]);
+                        newArr.Add(arr[i]);
                     }
                 }
-            }
 
             var result = newArr.ToArray();
             return result;
