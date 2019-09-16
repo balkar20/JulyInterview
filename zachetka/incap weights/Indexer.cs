@@ -10,18 +10,27 @@ namespace Incapsulation.Weights
     {
         public Indexer(double[] arr, int start, int length)
         {
-            this.subArr = GetSubArr(arr, start, length);
+            CheckIsValid(arr, start, length);
+            this.Arr = arr;
+            this.start = start;
+            this.SubArr = GetSubArr(arr, start, length);
             this.Length = length;
         }
-
-        private double[] subArr { get; }
+        private double[] Arr { get; set; }
+        private double[] SubArr { get; }
+        private int start;
         public int Length { get; set; }
 
 
         public int this[int index]
         {
-            get { return (int)subArr[index]; }
-            set { subArr[index] = value; }
+            get { return (int)GetSubArr(this.Arr, this.start, this.Length)[index]; }
+            set
+            {
+                var val = value;
+                SubArr[index] = value;
+                Arr[index + SubArr.Length - start] = value;
+            }
         }
 
         double[] GetSubArr(double[] arr, int start, int length)
@@ -39,6 +48,26 @@ namespace Incapsulation.Weights
 
             var result = newArr.ToArray();
             return result;
+        }
+
+        void CheckIsValid(double[] arr, int start, int length)
+        {
+            if (length != 0)
+            {
+                bool a = start < 0;
+            bool b = start > arr.Length - 1;
+            bool c = length > arr.Length;
+            bool d = length  > arr.Length - start;
+            if (start < 0 ||
+                start > arr.Length - 1 || 
+                length > arr.Length || 
+                length > arr.Length - start ||
+                length < 0)
+            {
+                throw new ArgumentException();
+            }
+            }
+            
         }
     }
 }
