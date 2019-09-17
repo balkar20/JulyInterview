@@ -39,8 +39,18 @@ namespace Inheritance.DataStructure
             var a = Descending();
             for (int i = 0; i < a.Length; i++)
                 for (int j = 0; j < a.Length; j++)
+
                     Assert.AreEqual(Math.Sign(i.CompareTo(j)), Math.Sign(a[i].CompareTo(a[j])), $"Error on {i} {j}");
             Assert.AreEqual(0, A11.CompareTo(A11_copy));
+        }
+
+        [Test]
+        public void DontFail_WhenCompareCategoryWithNullName()
+        {
+            Category first = new Category(null, MessageType.Incoming, MessageTopic.Subscribe);
+            Category second = new Category("A21", MessageType.Outgoing, MessageTopic.Subscribe);
+            int u = first.CompareTo(second);
+            Assert.AreEqual(0, 0);
         }
 
         [Test]

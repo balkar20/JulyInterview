@@ -16,61 +16,136 @@ namespace Inheritance.DataStructure
             MessageTopic = messageTopic;
         }
 
-        public string Name { get; set; }
-        private MessageType MessageType { get; set; }
+        public string Name { get; }
+        private MessageType MessageType { get; }
         private MessageTopic MessageTopic { get; set; }
-            
-        public int this[int a]
-        {
-            get
-            {
-                return 7;
-            }
-            set
-            {
-                 ;
-            }
-        }
 
         public static bool operator ==(Category category1, Category category2)
         {
-            return true;
+            bool result;
+            try
+            {
+                result = category1.Name == category2.Name &&
+                                   category1.MessageTopic == category2.MessageTopic &&
+                                   category1.MessageType == category2.MessageType;
+            }
+            catch (NullReferenceException e)
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         public static bool operator !=(Category category1, Category category2)
         {
-            return true;
+            return category1 == category2 ? false : true;
         }
 
         public static bool operator <(Category category1, Category category2)
         {
-            return true;
-            //r1._fix_denominator(r2);
-            //return r1.Numerator < r2.Numerator;
+            try
+            {
+                if (category1 != category2)
+                {
+                    return CheckForСomparisonMarks(category1, category2, СomparisonMark.Less);
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                return false;
+            }
+            
+            return false;
         }
         public static bool operator >(Category category1, Category category2)
         {
-            return true;
-            //r1._fix_denominator(r2);
-            //return r1.Numerator < r2.Numerator;
+            try
+            {
+                if (category1 != category2)
+                {
+                    return CheckForСomparisonMarks(category1, category2, СomparisonMark.More);
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                return false;
+            }
+           
+            return false;
         }
 
         public static bool operator >=(Category category1, Category category2)
         {
-            return true;
-            //return r2 < r1;
+            bool result = category1 == category2;
+            try
+            {
+                result = CheckForСomparisonMarks(category1, category2, СomparisonMark.More) ? true : result;
+            }
+            catch (NullReferenceException e)
+            {
+                result = false;
+            }
+
+            return result;
         }
         public static bool operator <=(Category category1, Category category2)
         {
-            return true;
-            //return r2 < r1;
+            bool result = category1 == category2;
+            try
+            {
+                result = CheckForСomparisonMarks(category1, category2, СomparisonMark.Less)  ? true : result;
+            }
+            catch (NullReferenceException e)
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        enum СomparisonMark
+        {
+            More,
+            Less
+        }
+
+        static bool CheckForСomparisonMarks(Category category1, Category category2, СomparisonMark coMark)
+        {
+            int intNames = -category1.Name.CompareTo((category2).Name);
+            int intMessageType = -
+                category1.MessageType.ToString().
+                    CompareTo((category2).
+                        MessageType.ToString());
+            int intMessageTopic = category1.MessageTopic.ToString().
+                CompareTo((category2).
+                    MessageTopic.ToString());
+            if (coMark == СomparisonMark.Less)
+            {
+                return intNames > 0 ||
+                       (intNames == 0 && intMessageType > 0) ||
+                       (intNames == 0 && intMessageType == 0 && intMessageTopic > 0);
+            }
+            else 
+            {
+                return intNames < 0 ||
+                       (intNames == 0 && intMessageType < 0) ||
+                       (intNames == 0 && intMessageType == 0 && intMessageTopic < 0);
+            }
         }
 
         public override bool Equals(object obj)
         {
-            if (obj.GetType() == this.GetType())
+            try
             {
-                return (this == (Category)obj);
+                if (obj.GetType() == this.GetType())
+                {
+                    return this == (Category)obj;
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                return false;
             }
 
             return false;
@@ -78,13 +153,32 @@ namespace Inheritance.DataStructure
 
         public override int GetHashCode()
         {
-            return 666;
-            return 1;
+                return Name.GetHashCode() |
+                       (MessageType.ToString().GetHashCode() << this.MessageType.ToString().GetHashCode());
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}.{MessageType}.{MessageTopic}";
         }
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            if (this > (Category)obj)
+            {
+                result = 1;
+            }
+            else if (this < (Category)obj)
+            {
+                result = -1;
+            }
+            else if (this == (Category)obj)
+            {
+                result = 0;
+            }
+
+            return result;
         }
     }
 }
