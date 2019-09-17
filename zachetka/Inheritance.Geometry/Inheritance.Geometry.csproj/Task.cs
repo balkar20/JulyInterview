@@ -12,6 +12,7 @@ namespace Inheritance.Geometry
         void Visit(Cube elem);
         void Visit(Cyllinder elem);
     }
+
     public abstract class Body
     {
         public abstract void Accept(IVisitor visitor);
@@ -57,7 +58,6 @@ namespace Inheritance.Geometry
 
         public override void Accept(IVisitor visitor)
         {
-             
             visitor.Visit(this);
         }
     }
@@ -85,7 +85,6 @@ namespace Inheritance.Geometry
 
     public class DimensionsVisitor : IVisitor
     {
-
         public Dimensions Dimensions { get; private set; }
 
         public void Visit(Ball elem)
