@@ -11,13 +11,7 @@ namespace Inheritance.MapObjects
         void Interact(Player player);
     }
 
-
-    public interface IInteractiveWithArmy : IInteractiveObject
-    {
-        Army Army { get; set; }
-    }
-
-    public interface IFreeInteractive : IInteractiveWithArmy
+    public interface IFreeInteractive : IInteractiveObject
     {
         Treasure Treasure { get; set; }
     }
@@ -73,7 +67,7 @@ namespace Inheritance.MapObjects
         }
     }
 
-    public class Wolfs : IInteractiveWithArmy
+    public class Wolfs : IInteractiveObject
     {
         public Army Army { get; set; }
         public void Interact(Player player)
