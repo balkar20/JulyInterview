@@ -8,13 +8,14 @@ namespace Inheritance.Geometry
 {
     public interface IVisitor
     {
-        void VisitBody(Body elem);
+        void Visit(Ball elem);
+        void Visit(Cube elem);
+        void Visit(Cyllinder elem);
     }
     public abstract class Body
     {
-        public abstract double GetVolume();
         public abstract void Accept(IVisitor visitor);
-
+        public abstract double GetVolume();
     }
 
     public class Ball : Body
@@ -27,7 +28,7 @@ namespace Inheritance.Geometry
 
         public override void Accept(IVisitor visitor)
         {
-            visitor.VisitBody(this);
+            visitor.Visit(this);
         }
     }
 
@@ -41,7 +42,7 @@ namespace Inheritance.Geometry
 
         public override void Accept(IVisitor visitor)
         {
-            visitor.VisitBody(this);
+            visitor.Visit(this);
         }
     }
 
@@ -56,7 +57,8 @@ namespace Inheritance.Geometry
 
         public override void Accept(IVisitor visitor)
         {
-            visitor.VisitBody(this);
+             
+            visitor.Visit(this);
         }
     }
 
@@ -64,19 +66,41 @@ namespace Inheritance.Geometry
     public class SurfaceAreaVisitor: IVisitor
     {
         public double SurfaceArea { get; private set; }
-        public void VisitBody(Body elem)
+
+        public void Visit(Ball elem)
         {
-            elem.Accept(this);
+            SurfaceArea = elem.Radius * elem.Radius * elem.Radius * Math.PI * 2;
+        }
+
+        public void Visit(Cube elem)
+        {
+            SurfaceArea = elem.Size * elem.Size * elem.Size * 2;
+        }
+
+        public void Visit(Cyllinder elem)
+        {
+            SurfaceArea = 2 * Math.PI * elem.Radius * elem.Radius + 2 * Math.PI * elem.Radius * elem.Height;
         }
     }
 
     public class DimensionsVisitor : IVisitor
     {
+
         public Dimensions Dimensions { get; private set; }
-        public void VisitBody(Body elem)
+
+        public void Visit(Ball elem)
         {
-            DimensionsVisitor
-            elem.Accept(this);
+            Dimensions = new Dimensions((double)elem.Radius * 2, (double)elem.Radius * 2);
+        }
+
+        public void Visit(Cube elem)
+        {
+            Dimensions = new Dimensions((double)elem.Size, (double)elem.Size);
+        }
+
+        public void Visit(Cyllinder elem)
+        {
+            Dimensions = new Dimensions((double)elem.Radius * 2, (double)elem.Height);
         }
     }
 }
