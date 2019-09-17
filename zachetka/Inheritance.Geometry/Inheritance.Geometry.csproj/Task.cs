@@ -6,44 +6,45 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Geometry
 {
-	public class Body
+	public abstract class Body
 	{
-		public double GetVolume()
-		{
-			if (this is Ball)
-				return 4.0 * Math.PI * Math.Pow(((Ball)this).Radius, 3) / 3;
-			if (this is Cube)
-				return Math.Pow(((Cube)this).Size, 3);
-			if (this is Cyllinder)
-			{
-				var c = this as Cyllinder;
-				return Math.PI * Math.Pow(c.Radius, 2) * c.Height;
-			}
-			throw new Exception();
-		}
+	    public abstract double GetVolume();
 	}
 
 	public class Ball : Body
 	{
 		public double Radius { get; set; }
+	    public override double GetVolume()
+	    {
+	        return 4.0 * Math.PI * Radius * Radius * Radius / 3;
+        }
 	}
 
 	public class Cube : Body
 	{
 		public double Size { get; set; }
+	    public override double GetVolume()
+	    {
+	        return Size * Size * Size;
+        }
 	}
 
 	public class Cyllinder : Body
 	{
 		public double Height { get; set; }
 		public double Radius { get; set; }
-	}
+	    public override double GetVolume()
+	    {
+	        return Math.PI * Radius * Radius * Height;
+        }
+    }
 
 	// Заготовка класса для задачи на Visitor
 	public class SurfaceAreaVisitor
 	{
 		public double SurfaceArea { get; private set; }
 	}
+
 	public class DimensionsVisitor
 	{
 		public Dimensions Dimensions { get; private set; }
