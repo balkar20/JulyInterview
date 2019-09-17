@@ -6,71 +6,97 @@ using System.Threading.Tasks;
 
 namespace Inheritance.MapObjects
 {
-    public class Dwelling
+    public interface IInteractiveObject
+    {
+        void Interact(Player player);
+    }
+
+
+    public interface IInteractiveWithArmy : IInteractiveObject
+    {
+        Army Army { get; set; }
+    }
+
+    public interface IFreeInteractive : IInteractiveWithArmy
+    {
+        Treasure Treasure { get; set; }
+    }
+
+    public interface IInteractiveMine : IFreeInteractive
+    {
+        int Owner { get; set; }
+    }
+
+    public class Dwelling : IInteractiveObject
     {
         public int Owner { get; set; }
+        public void Interact(Player player)
+        {
+            Owner = player.Id;
+        }
     }
 
-    public class Mine
+    public class Mine : IInteractiveMine
     {
         public int Owner { get; set; }
         public Army Army { get; set; }
         public Treasure Treasure { get; set; }
+
+        public void Interact(Player player)
+        {
+            if (player.CanBeat(Army))
+            {
+                Owner = player.Id;
+                player.Consume(Treasure);
+            }
+            else
+            {
+                player.Die();
+            }
+        }
     }
 
-    public class Creeps
+    public class Creeps : IFreeInteractive
     {
         public Army Army { get; set; }
         public Treasure Treasure { get; set; }
+        public void Interact(Player player)
+        {
+            if (player.CanBeat(Army))
+            {
+                player.Consume(Treasure);
+            }
+            else
+            {
+                player.Die();
+            }
+        }
     }
 
-    public class Wolfs
+    public class Wolfs : IInteractiveWithArmy
     {
         public Army Army { get; set; }
+        public void Interact(Player player)
+        {
+            if (!player.CanBeat(Army))
+                player.Die();
+        }
     }
 
-    public class ResourcePile
+    public class ResourcePile : IInteractiveObject
     {
         public Treasure Treasure { get; set; }
+        public void Interact(Player player)
+        {
+            player.Consume(Treasure);
+        }
     }
 
     public static class Interaction
     {
-        public static void Make(Player player, object mapObject)
+        public static void Make(Player player, IInteractiveObject mapObject)
         {
-            if (mapObject is Dwelling)
-            {
-                ((Dwelling)mapObject).Owner = player.Id;
-                return;
-            }
-            if (mapObject is Mine)
-            {
-                if (player.CanBeat(((Mine)mapObject).Army))
-                {
-                    ((Mine)mapObject).Owner = player.Id;
-                    player.Consume(((Mine)mapObject).Treasure);
-                }
-                else player.Die();
-                return;
-            }
-            if (mapObject is Creeps)
-            {
-                if (player.CanBeat(((Creeps)mapObject).Army))
-                    player.Consume(((Creeps)mapObject).Treasure);
-                else
-                    player.Die();
-                return;
-            }
-            if (mapObject is ResourcePile)
-            {
-                player.Consume(((ResourcePile)mapObject).Treasure);
-                return;
-            }
-            if (mapObject is Wolfs)
-            {
-                if (!player.CanBeat(((Wolfs)mapObject).Army))
-                    player.Die();
-            }
+            mapObject.Interact(player);
         }
     }
 }
