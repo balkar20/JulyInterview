@@ -2,28 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Linq.Enumerable;
 
 namespace Generics.BinaryTrees
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using static System.Linq.Enumerable;
-
-
     public class BinaryTree<T>
         : IEnumerable<T> where T : IComparable
     {
-        //private  T _value;
-        //private BinaryTree<T> _left, _right;
-
         public T Value { get; set; }
         public BinaryTree<T> Left { get; set; }
         public BinaryTree<T> Right { get; set; }
 
-        private bool isEmpy;
+        private bool isEmpty;
 
         public BinaryTree(T value)
         {
@@ -32,7 +22,7 @@ namespace Generics.BinaryTrees
             
         public BinaryTree()
         {
-            isEmpy = true;
+            isEmpty = true;
         }
 
         public BinaryTree(IEnumerable<T> values)
@@ -54,14 +44,14 @@ namespace Generics.BinaryTrees
 
         public BinaryTree<T> Add(T value)
         {
-            if (isEmpy)
+            if (isEmpty)
             {
                 Value = value;
-                isEmpy = !isEmpy;
+                isEmpty = !isEmpty;
             }
             else
             {
-                int compare = value.CompareTo(this.Value);
+                int compare = value.CompareTo(Value);
                 if (compare == 0)
                 {
                     Left = Add(value, Left);
@@ -84,9 +74,13 @@ namespace Generics.BinaryTrees
 
         public IEnumerator<T> GetEnumerator()
         {
-            return Enumerate(this.Left)
-                .Concat(Repeat(this.Value, 1))
-                .Concat(Enumerate(this.Right))
+            if (isEmpty)
+            {
+                return Empty<T>().GetEnumerator();
+            }
+            return Enumerate(Left)
+                .Concat(Repeat(Value, 1))
+                .Concat(Enumerate(Right))
                 .GetEnumerator();
         }
 
@@ -106,106 +100,12 @@ namespace Generics.BinaryTrees
             }
         }
     }
-    //public class BinaryTree<T> : IEnumerable<T> where  T : IComparable
-    //{
-
-    //    public BinaryTree()
-    //    {
-
-    //    }
-
-    //    public T Value { get; set; }
-    //    public BinaryTree<T> Left { get; set; }
-    //    public BinaryTree<T> Right { get; set; }
-
-    //    public void Add(T val)
-    //    {
-
-    //    }
-
-    //    private T[] GetOrderedArray()
-    //    {
-    //        T[] result = new T[] { };
-    //        //if (this.Current.Parent == null && this.Left == null && this.Right == null)
-    //        //{
-    //        //    result = new T[] { };
-    //        //}
-
-    //        return result;
-    //    }
-
-
-
-    //    public override int GetHashCode()
-    //    {
-    //        return ((IStructuralEquatable)this).GetHashCode(EqualityComparer<Object>.Default);
-    //    }
-
-    //    IEnumerator IEnumerable.GetEnumerator()
-    //    {
-    //        return GetEnumerator();
-    //    }
-
-    //    //IEnumerator IEnumerable.GetEnumerator()
-    //    //{
-    //    //    return null;
-    //    //}
-
-    //    public IEnumerator<T> GetEnumerator()
-    //    {
-    //        return new BinaryTreeEnumerator(this);
-    //    }
-
-    //    public override bool Equals(object obj)
-    //    {
-    //        T[] val = (T[])obj;
-    //        if (GetOrderedArray().Equals(Value))
-    //        {
-    //            return true;
-    //        }
-
-    //        return false;
-    //    }
-
-    //    class BinaryTreeEnumerator : IEnumerator<T>
-    //    {
-    //        BinaryTree<T> current;
-
-    //        public BinaryTreeEnumerator(BinaryTree<T> tree)
-    //        {
-    //            current = tree;
-    //        }
-
-    //        /// <summary>
-    //        /// The MoveNext function traverses the tree in sorted order.
-    //        /// </summary>
-    //        /// <returns>True if we found a valid entry, False if we have reached the end</returns>
-    //        public bool MoveNext()
-    //        {
-    //            bool result = true;
-    //            if (current.Left == null)
-    //            {
-    //                return false;
-    //            }
-
-    //            return result;
-    //        }
-
-    //        public T Current { get; }
-
-    //        object IEnumerator.Current { get; }
-
-    //        public void Dispose() { }
-    //        public void Reset() { current = null; }
-    //    }
-    //}
 
     public class BinaryTree
     {
-        private object Elements { get; set; }
         public static BinaryTree<T> Create<T>(params T[] elems) where T : IComparable
         {
-            return new BinaryTree<T>();
+            return new BinaryTree<T>(elems);
         }
     }
 }
