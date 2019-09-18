@@ -91,6 +91,18 @@ namespace Generics.BinaryTrees
 					}
 				});
 		}
+		[Test]
+		public void My()
+		{
+		    var tree = new BinaryTree<int>(new[] { 4, 2, 6, 1, 3, 5, 7 });
+		    Assert.AreEqual(4, tree.Value);
+		    Assert.AreEqual(2, tree.Left.Value);
+		    Assert.AreEqual(1, tree.Left.Left.Value);
+		    Assert.AreEqual(3, tree.Left.Right.Value);
+		    Assert.AreEqual(6, tree.Right.Value);
+		    Assert.AreEqual(5, tree.Right.Left.Value);
+		    Assert.AreEqual(7, tree.Right.Right.Value);
+        }
 
 		protected static void RunWithTimeout(int timeout, string message, Action func)
 		{
@@ -100,5 +112,7 @@ namespace Generics.BinaryTrees
 				Assert.Fail(message);
 			}
 		}
+
+
 	}
 }
