@@ -14,8 +14,6 @@ namespace Generics.Tables
         public TableWorker<TRow, TColumn, TVal> Open { get; set; }
         public TableWorker<TRow, TColumn, TVal> Existed { get; set; }
 
-        
-
         public void AddRow(TRow row)
         {
 
@@ -30,6 +28,13 @@ namespace Generics.Tables
         {
             throw new NotImplementedException();
         }
+    }
+
+    public struct Data<TRow, TColumn, TVal>
+    {
+        public TRow Row { get; set; }
+        public TColumn Column { get; set; }
+        public TVal Value { get; set; }
     }
 
     public class TableWorker<TR, TC, TVal>
