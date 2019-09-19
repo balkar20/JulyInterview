@@ -1,0 +1,10 @@
+D:\JulyInterview\zachetka\GenericsRobots\bin\Debug\Generics.Robots.exe.config
+D:\JulyInterview\zachetka\GenericsRobots\bin\Debug\Generics.Robots.exe
+D:\JulyInterview\zachetka\GenericsRobots\bin\Debug\Generics.Robots.pdb
+D:\JulyInterview\zachetka\GenericsRobots\bin\Debug\nunit.framework.dll
+D:\JulyInterview\zachetka\GenericsRobots\bin\Debug\nunitlite.dll
+D:\JulyInterview\zachetka\GenericsRobots\obj\Debug\Generics.Robots.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\GenericsRobots\obj\Debug\Generics.Robots.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\GenericsRobots\obj\Debug\Generics.Robots.csproj.CopyComplete
+D:\JulyInterview\zachetka\GenericsRobots\obj\Debug\Generics.Robots.exe
+D:\JulyInterview\zachetka\GenericsRobots\obj\Debug\Generics.Robots.pdb
