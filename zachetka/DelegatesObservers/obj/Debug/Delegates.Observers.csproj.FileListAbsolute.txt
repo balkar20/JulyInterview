@@ -1,0 +1,10 @@
+D:\JulyInterview\zachetka\DelegatesObservers\bin\Debug\Delegates.Observers.exe.config
+D:\JulyInterview\zachetka\DelegatesObservers\bin\Debug\Delegates.Observers.exe
+D:\JulyInterview\zachetka\DelegatesObservers\bin\Debug\Delegates.Observers.pdb
+D:\JulyInterview\zachetka\DelegatesObservers\bin\Debug\nunit.framework.dll
+D:\JulyInterview\zachetka\DelegatesObservers\bin\Debug\nunitlite.dll
+D:\JulyInterview\zachetka\DelegatesObservers\obj\Debug\Delegates.Observers.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\DelegatesObservers\obj\Debug\Delegates.Observers.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\DelegatesObservers\obj\Debug\Delegates.Observers.csproj.CopyComplete
+D:\JulyInterview\zachetka\DelegatesObservers\obj\Debug\Delegates.Observers.exe
+D:\JulyInterview\zachetka\DelegatesObservers\obj\Debug\Delegates.Observers.pdb
