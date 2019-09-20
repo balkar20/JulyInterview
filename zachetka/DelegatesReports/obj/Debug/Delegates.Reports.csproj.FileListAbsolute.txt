@@ -1,0 +1,10 @@
+D:\JulyInterview\zachetka\DelegatesReports\bin\Debug\Delegates.Reports.exe.config
+D:\JulyInterview\zachetka\DelegatesReports\bin\Debug\Delegates.Reports.exe
+D:\JulyInterview\zachetka\DelegatesReports\bin\Debug\Delegates.Reports.pdb
+D:\JulyInterview\zachetka\DelegatesReports\bin\Debug\nunit.framework.dll
+D:\JulyInterview\zachetka\DelegatesReports\bin\Debug\nunitlite.dll
+D:\JulyInterview\zachetka\DelegatesReports\obj\Debug\Delegates.Reports.csprojAssemblyReference.cache
+D:\JulyInterview\zachetka\DelegatesReports\obj\Debug\Delegates.Reports.csproj.CoreCompileInputs.cache
+D:\JulyInterview\zachetka\DelegatesReports\obj\Debug\Delegates.Reports.csproj.CopyComplete
+D:\JulyInterview\zachetka\DelegatesReports\obj\Debug\Delegates.Reports.exe
+D:\JulyInterview\zachetka\DelegatesReports\obj\Debug\Delegates.Reports.pdb
