@@ -7,54 +7,56 @@ using System.Threading.Tasks;
 
 namespace Generics.Robots
 {
-    public abstract class RobotAI
+    public interface IRobotAI<out T>
     {
-        public abstract object GetCommand();
+        T GetCommand();
     }
 
-    public class ShooterAI : RobotAI
+    public abstract class RobotAI<T>: IRobotAI<T>
+    {
+        public abstract T GetCommand();
+    }
+
+    public class ShooterAI : RobotAI<IMoveCommand>
     {
         int counter = 1;
 
-        public override object GetCommand()
+        public override IMoveCommand GetCommand()
         {
             return ShooterCommand.ForCounter(counter++);
         }
     }
 
-    public class BuilderAI : RobotAI
+    public class BuilderAI : RobotAI<IMoveCommand>
     {
         int counter = 1;
-        public override object GetCommand()
+        public override IMoveCommand GetCommand()
         {
             return BuilderCommand.ForCounter(counter++);
         }
     }
 
-    public abstract class Device
+    public abstract class Device<T>
     {
-        public abstract string ExecuteCommand(object command);
+        public abstract string ExecuteCommand(T command);
     }
 
-    public class Mover : Device
+    public class Mover : Device<IMoveCommand>
     {
-        public override string ExecuteCommand(object _command)
+        public override string ExecuteCommand(IMoveCommand command)
         {
-            var command = _command as IMoveCommand;
             if (command == null)
                 throw new ArgumentException();
             return $"MOV {command.Destination.X}, {command.Destination.Y}";
         }
     }
 
-
-
     public class Robot
     {
-        RobotAI ai;
-        Device device;
+        RobotAI<IMoveCommand> ai;
+        Device<IMoveCommand> device;
 
-        public Robot(RobotAI ai, Device executor)
+        public Robot(RobotAI<IMoveCommand> ai, Device<IMoveCommand> executor)
         {
             this.ai = ai;
             this.device = executor;
@@ -69,14 +71,11 @@ namespace Generics.Robots
                      break;
                  yield return device.ExecuteCommand(command);
              }
-
         }
 
-        public static Robot Create(RobotAI ai, Device executor)
+        public static Robot Create(RobotAI<IMoveCommand> ai, Device<IMoveCommand> executor)
         {
             return new Robot(ai, executor);
         }
     }
-    
-
 }
