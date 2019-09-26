@@ -21,6 +21,7 @@ namespace IEnumerableTrain1
             Console.ReadLine();
         }
     }
+
     class Book
     {
         public Book(string name)
@@ -29,6 +30,7 @@ namespace IEnumerableTrain1
         }
         public string Name { get; set; }
     }
+
     class Library : IEnumerable
     {
         private Book[] books;
