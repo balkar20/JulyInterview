@@ -1,0 +1,11 @@
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\bin\Debug\netcoreapp2.1\newSharpFeatures.deps.json
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\bin\Debug\netcoreapp2.1\newSharpFeatures.runtimeconfig.json
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\bin\Debug\netcoreapp2.1\newSharpFeatures.runtimeconfig.dev.json
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\bin\Debug\netcoreapp2.1\newSharpFeatures.dll
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\bin\Debug\netcoreapp2.1\newSharpFeatures.pdb
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.csprojAssemblyReference.cache
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.csproj.CoreCompileInputs.cache
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.AssemblyInfoInputs.cache
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.AssemblyInfo.cs
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.dll
+D:\JulyInterview\newSharpFeatures\newSharpFeatures\obj\Debug\netcoreapp2.1\newSharpFeatures.pdb
