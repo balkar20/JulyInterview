@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternPrototype", "Pattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrincessTrain", "PrincessTrain\PrincessTrain.csproj", "{BAC748E6-66F2-4B52-B6F7-FE8BD3395D66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arena", "Arena\Arena.csproj", "{8CD6F382-7C51-4B65-BAB6-AA9A6829B069}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{BAC748E6-66F2-4B52-B6F7-FE8BD3395D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC748E6-66F2-4B52-B6F7-FE8BD3395D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC748E6-66F2-4B52-B6F7-FE8BD3395D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD6F382-7C51-4B65-BAB6-AA9A6829B069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD6F382-7C51-4B65-BAB6-AA9A6829B069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD6F382-7C51-4B65-BAB6-AA9A6829B069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD6F382-7C51-4B65-BAB6-AA9A6829B069}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
