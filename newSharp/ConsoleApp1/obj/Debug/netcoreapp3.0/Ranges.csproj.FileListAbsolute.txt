@@ -1,0 +1,11 @@
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.exe
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.deps.json
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.runtimeconfig.json
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.runtimeconfig.dev.json
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.dll
+D:\JulyInterview\newSharp\ConsoleApp1\bin\Debug\netcoreapp3.0\Ranges.pdb
+D:\JulyInterview\newSharp\ConsoleApp1\obj\Debug\netcoreapp3.0\Ranges.csprojAssemblyReference.cache
+D:\JulyInterview\newSharp\ConsoleApp1\obj\Debug\netcoreapp3.0\Ranges.AssemblyInfoInputs.cache
+D:\JulyInterview\newSharp\ConsoleApp1\obj\Debug\netcoreapp3.0\Ranges.AssemblyInfo.cs
+D:\JulyInterview\newSharp\ConsoleApp1\obj\Debug\netcoreapp3.0\Ranges.dll
+D:\JulyInterview\newSharp\ConsoleApp1\obj\Debug\netcoreapp3.0\Ranges.pdb

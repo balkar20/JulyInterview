@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nullables", "newSharp\Nullables.csproj", "{8042F09B-841E-415E-B5CF-9AE7B4538208}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ranges", "ConsoleApp1\Ranges.csproj", "{8505137A-9562-43B3-943C-D4D742AA40DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indexes", "ConsoleApp2\Indexes.csproj", "{B54E5EB6-FF75-44B8-AAA1-E8FFBF0EEE69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8042F09B-841E-415E-B5CF-9AE7B4538208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8042F09B-841E-415E-B5CF-9AE7B4538208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8042F09B-841E-415E-B5CF-9AE7B4538208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8042F09B-841E-415E-B5CF-9AE7B4538208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8505137A-9562-43B3-943C-D4D742AA40DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8505137A-9562-43B3-943C-D4D742AA40DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8505137A-9562-43B3-943C-D4D742AA40DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8505137A-9562-43B3-943C-D4D742AA40DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54E5EB6-FF75-44B8-AAA1-E8FFBF0EEE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54E5EB6-FF75-44B8-AAA1-E8FFBF0EEE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54E5EB6-FF75-44B8-AAA1-E8FFBF0EEE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54E5EB6-FF75-44B8-AAA1-E8FFBF0EEE69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F91A783D-FA94-44AD-9BCE-3F16578E0C94}
+	EndGlobalSection
+EndGlobal

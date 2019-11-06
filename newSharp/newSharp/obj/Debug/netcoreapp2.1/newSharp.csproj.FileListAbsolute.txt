@@ -1,0 +1,11 @@
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp2.1\newSharp.deps.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp2.1\newSharp.runtimeconfig.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp2.1\newSharp.runtimeconfig.dev.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp2.1\newSharp.dll
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp2.1\newSharp.pdb
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.csprojAssemblyReference.cache
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.csproj.CoreCompileInputs.cache
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.AssemblyInfoInputs.cache
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.AssemblyInfo.cs
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.dll
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp2.1\newSharp.pdb
