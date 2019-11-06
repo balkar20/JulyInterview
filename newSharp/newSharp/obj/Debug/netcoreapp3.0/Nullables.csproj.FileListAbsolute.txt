@@ -1,0 +1,10 @@
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.exe
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.deps.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.runtimeconfig.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.runtimeconfig.dev.json
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.dll
+D:\JulyInterview\newSharp\newSharp\bin\Debug\netcoreapp3.0\newSharp.pdb
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\Nullables.AssemblyInfoInputs.cache
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\Nullables.AssemblyInfo.cs
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\newSharp.dll
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\newSharp.pdb
