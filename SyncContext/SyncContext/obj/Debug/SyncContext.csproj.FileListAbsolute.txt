@@ -1,0 +1,10 @@
+D:\JulyInterview\SyncContext\SyncContext\bin\Debug\SyncContext.exe.config
+D:\JulyInterview\SyncContext\SyncContext\bin\Debug\SyncContext.exe
+D:\JulyInterview\SyncContext\SyncContext\bin\Debug\SyncContext.pdb
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.csprojAssemblyReference.cache
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.Form1.resources
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.Properties.Resources.resources
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.csproj.GenerateResource.cache
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.csproj.CoreCompileInputs.cache
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.exe
+D:\JulyInterview\SyncContext\SyncContext\obj\Debug\SyncContext.pdb

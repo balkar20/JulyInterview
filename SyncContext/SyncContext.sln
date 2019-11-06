@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncContext", "SyncContext\SyncContext.csproj", "{95AC5331-94BE-4283-93CD-6F6F9470CBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DispatcherTrain", "DispatcherTrain\DispatcherTrain.csproj", "{5DC823DA-44F3-4DCA-888B-7DD575DC4DB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95AC5331-94BE-4283-93CD-6F6F9470CBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AC5331-94BE-4283-93CD-6F6F9470CBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AC5331-94BE-4283-93CD-6F6F9470CBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AC5331-94BE-4283-93CD-6F6F9470CBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC823DA-44F3-4DCA-888B-7DD575DC4DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC823DA-44F3-4DCA-888B-7DD575DC4DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC823DA-44F3-4DCA-888B-7DD575DC4DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC823DA-44F3-4DCA-888B-7DD575DC4DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58767B86-F14C-43F9-8E98-F256831D19B6}
+	EndGlobalSection
+EndGlobal
