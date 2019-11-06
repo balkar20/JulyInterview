@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\JulyInterview\\Patterns\\Arena\\Arena.csproj",
-      "projectName": "Arena",
-      "projectPath": "D:\\JulyInterview\\Patterns\\Arena\\Arena.csproj",
+      "projectUniqueName": "D:\\JulyInterview\\Patterns\\MergeJoin\\MergeJoin.csproj",
+      "projectName": "MergeJoin",
+      "projectPath": "D:\\JulyInterview\\Patterns\\MergeJoin\\MergeJoin.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\JulyInterview\\Patterns\\Arena\\obj\\",
+      "outputPath": "D:\\JulyInterview\\Patterns\\MergeJoin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

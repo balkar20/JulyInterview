@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Arena
 {
@@ -6,25 +10,91 @@ namespace Arena
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TickTock tt = new TickTock();
+            MyThread mt1 = new MyThread("Tick", tt);
+            MyThread mt2 = new MyThread("Tock", tt);
+            mt1.thrd.Join();
+            mt2.thrd.Join();
+
+            Console.WriteLine("Часы остановлены");
+            Console.ReadLine();
+        }
+
+        private static void Work()
+        {
+            Thread.Sleep(1000);
         }
     }
 
-    struct MyStruct
+    class TickTock
     {
-        public int ai;
+        private object lockOn = new object();
 
-        public string name;
+        public void Tick(bool running)
+        {
+            lock (lockOn)
+            {
+                if (!running)
+                {
+                    // Остановить часы
+                    Monitor.Pulse(lockOn);
+                    return;
+                }
 
+                Console.Write("Тик ");
+                // Разрешить выполнение метода Tock()
+                Monitor.Pulse(lockOn);
+
+                // Ожидать завершение Tock()
+                Monitor.Wait(lockOn);
+            }
+        }
+
+        public void Tock(bool running)
+        {
+            lock (lockOn)
+            {
+                if (!running)
+                {
+                    Monitor.Pulse(lockOn);
+                    return;
+                }
+
+                Console.WriteLine("так");
+                Monitor.Pulse(lockOn);
+                Monitor.Wait(lockOn);
+            }
+        }
     }
 
-    interface ISomeInterface
+    class MyThread
     {
-        
-    }
+        public Thread thrd;
+        TickTock ttobj;
 
-    struct MyStruct2 : ISomeInterface
-    {
-        
+        // Новый поток
+        public MyThread(string name, TickTock tt)
+        {
+            thrd = new Thread(this.Run);
+            ttobj = tt;
+            thrd.Name = name;
+            thrd.Start();
+        }
+
+        void Run()
+        {
+            if (thrd.Name == "Tick")
+            {
+                for (int i = 0; i < 5; i++)
+                    ttobj.Tick(true);
+                ttobj.Tick(false);
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                    ttobj.Tock(true);
+                ttobj.Tock(false);
+            }
+        }
     }
 }

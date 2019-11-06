@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Arena")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MergeJoin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Arena")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Arena")]
+[assembly: System.Reflection.AssemblyProductAttribute("MergeJoin")]
+[assembly: System.Reflection.AssemblyTitleAttribute("MergeJoin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
