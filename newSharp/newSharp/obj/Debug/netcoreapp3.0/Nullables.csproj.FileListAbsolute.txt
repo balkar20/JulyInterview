@@ -8,3 +8,4 @@ D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\Nullables.AssemblyInf
 D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\Nullables.AssemblyInfo.cs
 D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\newSharp.dll
 D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\newSharp.pdb
+D:\JulyInterview\newSharp\newSharp\obj\Debug\netcoreapp3.0\Nullables.csprojAssemblyReference.cache
