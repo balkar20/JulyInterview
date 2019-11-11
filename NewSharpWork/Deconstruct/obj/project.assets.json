@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\JulyInterview\\newSharp\\ConsoleApp2\\Indexes.csproj",
-      "projectName": "Indexes",
-      "projectPath": "D:\\JulyInterview\\newSharp\\ConsoleApp2\\Indexes.csproj",
+      "projectUniqueName": "D:\\JulyInterview\\NewSharpWork\\Deconstruct\\Deconstruct.csproj",
+      "projectName": "Deconstruct",
+      "projectPath": "D:\\JulyInterview\\NewSharpWork\\Deconstruct\\Deconstruct.csproj",
       "packagesPath": "C:\\Users\\vbalkarov\\.nuget\\packages\\",
-      "outputPath": "D:\\JulyInterview\\newSharp\\ConsoleApp2\\obj\\",
+      "outputPath": "D:\\JulyInterview\\NewSharpWork\\Deconstruct\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

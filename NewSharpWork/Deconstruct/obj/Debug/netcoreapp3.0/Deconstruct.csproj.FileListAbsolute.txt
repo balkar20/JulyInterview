@@ -1,0 +1,10 @@
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.exe
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.deps.json
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.runtimeconfig.json
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.runtimeconfig.dev.json
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.dll
+D:\JulyInterview\NewSharpWork\Deconstruct\bin\Debug\netcoreapp3.0\Deconstruct.pdb
+D:\JulyInterview\NewSharpWork\Deconstruct\obj\Debug\netcoreapp3.0\Deconstruct.AssemblyInfoInputs.cache
+D:\JulyInterview\NewSharpWork\Deconstruct\obj\Debug\netcoreapp3.0\Deconstruct.AssemblyInfo.cs
+D:\JulyInterview\NewSharpWork\Deconstruct\obj\Debug\netcoreapp3.0\Deconstruct.dll
+D:\JulyInterview\NewSharpWork\Deconstruct\obj\Debug\netcoreapp3.0\Deconstruct.pdb

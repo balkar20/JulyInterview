@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JulyInterview\\newSharp\\ConsoleApp1\\Ranges.csproj": {}
+    "D:\\JulyInterview\\NewSharpWork\\NewSharpWork\\NewSharpWork.csproj": {}
   },
   "projects": {
-    "D:\\JulyInterview\\newSharp\\ConsoleApp1\\Ranges.csproj": {
+    "D:\\JulyInterview\\NewSharpWork\\NewSharpWork\\NewSharpWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JulyInterview\\newSharp\\ConsoleApp1\\Ranges.csproj",
-        "projectName": "Ranges",
-        "projectPath": "D:\\JulyInterview\\newSharp\\ConsoleApp1\\Ranges.csproj",
+        "projectUniqueName": "D:\\JulyInterview\\NewSharpWork\\NewSharpWork\\NewSharpWork.csproj",
+        "projectName": "NewSharpWork",
+        "projectPath": "D:\\JulyInterview\\NewSharpWork\\NewSharpWork\\NewSharpWork.csproj",
         "packagesPath": "C:\\Users\\vbalkarov\\.nuget\\packages\\",
-        "outputPath": "D:\\JulyInterview\\newSharp\\ConsoleApp1\\obj\\",
+        "outputPath": "D:\\JulyInterview\\NewSharpWork\\NewSharpWork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
