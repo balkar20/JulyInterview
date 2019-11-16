@@ -1,0 +1,16 @@
+Host: localhost:5000
+Accept: application/json
+Content-Type: application/json
+Content-Length: 16
+
+tripped:
+http://localhost:5000/api/groups/1/schedules
+for ScheduleDto:
+{"Id":4,"DayOfWeek":"Monday","Time":"1.03:14:56.1667","Duration":"1.03:14:56.1667","GroupId":2,"RoomId":4,"From":"1995-04-07T00:00:00","To":"1995-04-07T00:00:00"}
+
+For GroupDto:
+{"Name":"Pre-Intermediate","Status":"Active","TeacherId":2,"Color":25}
+
+Fof UserGroupDto
+http://localhost:5000/api/groups/
+{"GroupId":1,"UserId":1}
