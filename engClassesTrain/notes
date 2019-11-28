@@ -14,3 +14,175 @@ For GroupDto:
 Fof UserGroupDto
 http://localhost:5000/api/groups/
 {"GroupId":1,"UserId":1}
+
+//////////////////////////////////////////////////////////////////////////////////
+PUT
+http://localhost:5000/api/users/1/roles
+[
+     "ADMIN",
+    "Student"
+ ]
+ Accept: application/json
+Content-Type: application/json
+Note!: 
+//var claims = new List<Claim>{
+            //    new Claim(ClaimTypes.Name, user.ADName),
+            //    new Claim(ClaimTypes.Role, user.Role.ToString()) ==> CredentialService row:50 maby 
+			                                                           we shuld add role claim(but we have many roles)
+                                                                        !! but we can use user.roles.foreach add roleclame
+															        like:
+																	user.Roles.ToList().ForEach(r => 
+                                                                     claims.Add(new Claim(ClaimTypes.Role, r.RoleNumber.ToString())));
+            //    new Claim("Id", user.Id.ToString()),
+            //};
+/////////////////////////////////////////////////////////////////////////////
+
+POST
+http://localhost:5000/api/classes/1
+{
+  "Date":"2017-09-11",
+   "Duration":"9:00",
+   "Comment":"blabla",
+    "RoomId":1,
+    "Test":true
+}
+
+{
+"Id":1,
+"Content":[],
+"Name":"",
+"Path":"",
+"FileType":"",
+"ClassId":1,
+"File":{"Name":"My"}
+}
+
+
+INSERT INTO public."Users"("LastName", "ADName", "Role", "FirstName")
+VALUES ('Balkarov', 'A', 2, 'Vladislav'),
+('Tarpachova', 'A', 2, 'Evgenia'),
+('Feldman', 'G', 2, 'Vladzimir'),
+('Sirotkin', 'A', 1, 'konstantin');
+
+INSERT INTO public."Groups"( "TeacherId", "Name", "Status", "Color")
+VALUES (2, 'Intermediate', 1, 4),
+(2, 'Pre-Intermediate', 1, 5),
+(3, 'upper-Intermediate', 1, 6),
+(3, 'Fluent', 1, 7);
+
+INSERT INTO public."Schedules"(
+"DayOfWeek", "Time", "Duration", "GroupId", "RoomId", "From", "To")
+VALUES (1, '09:00', '1.5 H', 1, 1, '2019-01-01', '2020-01-01');
+
+
+---------------------------acebdf13572468
+Content-Disposition: form-data; name="Id" 
+
+1
+---------------------------acebdf13572468
+Content-Disposition: form-data; name="FileType" 
+
+1
+---------------------------acebdf13572468
+Content-Disposition: form-data; name="ClassId" 
+
+1
+---------------------------acebdf13572468
+Content-Disposition: form-data; name="File"; FileName="123.jpg"
+Content-Type: image/jpg
+
+<@INCLUDE *C:\Users\Me\Pictures\95111c18-e969-440c-81bf-2579f29b3564.jpg*@>
+---------------------------acebdf13572468--
+
+
+  const formData = new FormData();
+  var fileStringArray = ["Foo bar"];
+  var fileName = "...";
+  var blobAttrs = { type: "text/plain",  };
+  var file = new File(fileStringArray, fileName, blobAttrs);
+
+  formData.append('File', file, file.name);
+  //formData.append('Id', "1"); // delete this line after api fix (ARTENGC-140)
+  formData.append('FileType', 1);
+  formData.append('ClassId', 1);
+
+  fetch("/api/files", {
+    method: 'POST',
+    body: formData,
+  });
+  
+  
+  
+
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <remarks>
+        /// Post: api/users
+        /// </remarks>
+        /// <returns>user</returns>
+        /// <response code="200">User received successfully</response>
+        /// <response code="403">Not Enough permission to perform operation</response>
+        /// <response code="500">Unexpected error</response>
+        [HttpPost]
+        [Authorize(Roles = "ADMIN")]
+        [ProducesResponseType(typeof(IEnumerable<UserDto>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
+        public async Task<IActionResult> Post(string adName, [FromBody] RoleNumber[] roles)
+        {
+            if (!ModelState.IsValid) return BadRequest("Invalid model object");
+
+            var user = await _userService.CreateUserWithRoles(adName, roles);
+            return CreatedAtAction(nameof(Post), new { id = user.Id }, user);
+        }
+		
+		fix: 
+		 // [Authorize(Roles = "ADMIN")] !!!!!!!!!!!!! Uncoment
+        [HttpPut]
+        [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
+        public async Task<IActionResult> Put(int id, [FromBody] RoleNumber[] roles)
+        {
+            if (id == GetUserId())
+            {
+                return Forbid($"Administrator isn't allowed to remove his role");
+            }
+
+            var user = await _userService.UpdateAsync(id, roles); !!!!!!!!!!!!! Return UserDto
+            return Ok(user);
+        }
+		
+		
+		IuserService^
+		Task<User> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers);
+		
+		UserService : 
+		 public async Task<User> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers)
+        {
+            var allRoles = await _context.Roles.ToListAsync();
+            var user = new User()
+            {
+                ADName = adName
+            };
+            user = (await _context.Users.AddAsync(user)).Entity;
+
+            foreach (var roleNumber in roleNumbers)
+            {
+                user.UserRoles.Add(new UserRole()
+                {
+                    UserId = user.Id,
+                    RoleId = allRoles.Find(r => r?.RoleNumber == roleNumber).Id
+                });
+            }
+
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
+		
+		
+		
+

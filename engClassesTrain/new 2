@@ -1,0 +1,13 @@
+public override async Task DeleteAsync(ScheduleDto scheduleDto)
+        {
+            // TODO: Check performance
+            if (scheduleDto == null) throw new ArgumentNullException($"Parameter {nameof(scheduleDto)} cannot be null");
+
+            await Task.Run(() => _context.RemoveRange(_context.Schedules.Where(s => s.GroupId == scheduleDto.GroupId)));
+        }
+		
+		var classes = await GetAllAsync(x =>
+            (x.Date >= from || from == null) 
+                && (x.Date <= to || to == null)
+                && (x.Group.UserGroups.Any(ug => ug.UserId == userId)),
+new Expression<Func<Class, IId>>[] { x => x.Group, x => x.Room, x => x.Group.Teacher });

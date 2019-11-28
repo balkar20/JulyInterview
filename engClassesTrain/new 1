@@ -1,0 +1,11 @@
+
+ScheduleServiceTest.cs
+408 - локальные переменные объявляются без нижних подчеркиваний
+440 - локальные переменные объявляются без нижних подчеркиваний
+432 - можно просто schedule.Classes.Any()
+467 - локальные переменные объявляются без нижних подчеркиваний
+
+ScheduleService
+177 - var groupId - Это массив - а название не соответствует массиву
+
+An existing connection was forcibly closed by the remote host.
