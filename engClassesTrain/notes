@@ -20,7 +20,8 @@ PUT
 http://localhost:5000/api/users/1/roles
 [
      "ADMIN",
-    "Student"
+    "Student",
+	 "Teacher"
  ]
  Accept: application/json
 Content-Type: application/json
@@ -59,10 +60,10 @@ http://localhost:5000/api/classes/1
 
 
 INSERT INTO public."Users"("LastName", "ADName", "Role", "FirstName")
-VALUES ('Balkarov', 'A', 2, 'Vladislav'),
-('Tarpachova', 'A', 2, 'Evgenia'),
-('Feldman', 'G', 2, 'Vladzimir'),
-('Sirotkin', 'A', 1, 'konstantin');
+VALUES 
+('Tarpachova', 'A' 'Evgenia'),
+('Feldman', 'G', 'Vladzimir'),
+('Sirotkin', 'A' 'konstantin');
 
 INSERT INTO public."Groups"( "TeacherId", "Name", "Status", "Color")
 VALUES (2, 'Intermediate', 1, 4),
@@ -73,6 +74,11 @@ VALUES (2, 'Intermediate', 1, 4),
 INSERT INTO public."Schedules"(
 "DayOfWeek", "Time", "Duration", "GroupId", "RoomId", "From", "To")
 VALUES (1, '09:00', '1.5 H', 1, 1, '2019-01-01', '2020-01-01');
+
+INSERT INTO public."UserRole"(
+"UserId", "Role")
+VALUES (1, 1),
+VALUES (1, 4),
 
 
 ---------------------------acebdf13572468
@@ -120,13 +126,13 @@ Content-Type: image/jpg
         /// <remarks>
         /// Post: api/users
         /// </remarks>
-        /// <returns>user</returns>
-        /// <response code="200">User received successfully</response>
+        /// <returns>UserDto</returns>
+        /// <response code="200">User created successfully</response>
         /// <response code="403">Not Enough permission to perform operation</response>
         /// <response code="500">Unexpected error</response>
         [HttpPost]
         [Authorize(Roles = "ADMIN")]
-        [ProducesResponseType(typeof(IEnumerable<UserDto>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.Created)]
         [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
         [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Post(string adName, [FromBody] RoleNumber[] roles)
@@ -137,40 +143,24 @@ Content-Type: image/jpg
             return CreatedAtAction(nameof(Post), new { id = user.Id }, user);
         }
 		
-		fix: 
-		 // [Authorize(Roles = "ADMIN")] !!!!!!!!!!!!! Uncoment
-        [HttpPut]
-        [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> Put(int id, [FromBody] RoleNumber[] roles)
-        {
-            if (id == GetUserId())
-            {
-                return Forbid($"Administrator isn't allowed to remove his role");
-            }
-
-            var user = await _userService.UpdateAsync(id, roles); !!!!!!!!!!!!! Return UserDto
-            return Ok(user);
-        }
-		
-		
 		IuserService^
-		Task<User> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers);
+		    Task<UserDto> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers);
 		
 		UserService : 
-		 public async Task<User> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers)
+		
+        public async Task<UserDto> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers)
         {
             var allRoles = await _context.Roles.ToListAsync();
             var user = new User()
             {
-                ADName = adName
+                ADName = adName,
+                UserRoles = new List<UserRole>()
             };
-            user = (await _context.Users.AddAsync(user)).Entity;
+            var createdUser = (await _context.Users.AddAsync(user));
 
             foreach (var roleNumber in roleNumbers)
             {
+                var ur = user.UserRoles.ToList();
                 user.UserRoles.Add(new UserRole()
                 {
                     UserId = user.Id,
@@ -180,9 +170,32 @@ Content-Type: image/jpg
 
             await _context.SaveChangesAsync();
 
-            return user;
+            return _mapper.Map<UserDto>(user);
         }
 		
 		
-		
+        [TestMethod]
+        public async Task Create_UserWithRoles()
+        {
+            using (var dbContext = new RepositoryContext(_dbOptions))
+            {
+                var adName = "kkardashyan";
+                var roles = new RoleNumber[]
+                {
+                    RoleNumber.Student,
+                    RoleNumber.HR
+                };
+                await dbContext.Roles.AddRangeAsync(RoleList);
+                await dbContext.SaveChangesAsync();
+
+                var service = new UserService(dbContext, GetRoleMapper());
+                var user = await service.CreateUserWithRoles(adName, roles);
+
+                var actualUser = dbContext.Users.FirstOrDefault(u => u.ADName == adName);
+                var actualRoles = actualUser?.UserRoles.Select(ur => ur.Role.RoleNumber).ToArray();
+
+                CollectionAssert.AreEqual(actualRoles, roles);
+            }
+        }
+
 
