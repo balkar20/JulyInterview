@@ -198,4 +198,31 @@ Content-Type: image/jpg
             }
         }
 
+/// <summary>
+        /// Get all system roles
+        /// </summary>
+        /// <remarks>
+        /// GET api/users/roles
+        /// </remarks>
+        /// <returns>List<Role></returns>
+        /// <response code="200">All roles received successfully</response>
+        /// <response code="403">Access denied to User</response>
+        /// <response code="404">The roles doesn't exists</response>
+        /// <response code="500">Unexpected error</response>
+        [HttpGet("roles")]
+        //[Authorize(Roles = "ADMIN")]
+        [ProducesResponseType(typeof(List<Role>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
+        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
+        public IActionResult GetRoles()
+        {
+            var roles = Enum.GetValues(typeof(Role)).Cast<Role>();
 
+            return Ok(roles);
+        }
+		
+		To edit the meeting is necessary to save the setting UID nUID:{5}).
+		Outlook detects the UID and searches the database of the calendar if the meeting is that it may modify or cancel, adding the STATUS parameter. 
+		To cancel = STATUS: CANCELLED; 
+		To Edit only send the same data with the same UID meeting and the meeting will be rescheduled.
