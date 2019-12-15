@@ -59,11 +59,11 @@ http://localhost:5000/api/classes/1
 }
 
 
-INSERT INTO public."Users"("LastName", "ADName", "Role", "FirstName")
+INSERT INTO public."Users"("LastName", "ADName", "FirstName")
 VALUES 
-('Tarpachova', 'A' 'Evgenia'),
+('Tarpachova', 'A', 'Evgenia'),
 ('Feldman', 'G', 'Vladzimir'),
-('Sirotkin', 'A' 'konstantin');
+('Sirotkin', 'A', 'konstantin');
 
 INSERT INTO public."Groups"( "TeacherId", "Name", "Status", "Color")
 VALUES (2, 'Intermediate', 1, 4),
@@ -116,112 +116,7 @@ Content-Type: image/jpg
     method: 'POST',
     body: formData,
   });
-  
-  
-  
 
-        /// <summary>
-        /// Create user
-        /// </summary>
-        /// <remarks>
-        /// Post: api/users
-        /// </remarks>
-        /// <returns>UserDto</returns>
-        /// <response code="200">User created successfully</response>
-        /// <response code="403">Not Enough permission to perform operation</response>
-        /// <response code="500">Unexpected error</response>
-        [HttpPost]
-        [Authorize(Roles = "ADMIN")]
-        [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.Created)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> Post(string adName, [FromBody] RoleNumber[] roles)
-        {
-            if (!ModelState.IsValid) return BadRequest("Invalid model object");
-
-            var user = await _userService.CreateUserWithRoles(adName, roles);
-            return CreatedAtAction(nameof(Post), new { id = user.Id }, user);
-        }
-		
-		IuserService^
-		    Task<UserDto> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers);
-		
-		UserService : 
-		
-        public async Task<UserDto> CreateUserWithRoles(string adName, RoleNumber[] roleNumbers)
-        {
-            var allRoles = await _context.Roles.ToListAsync();
-            var user = new User()
-            {
-                ADName = adName,
-                UserRoles = new List<UserRole>()
-            };
-            var createdUser = (await _context.Users.AddAsync(user));
-
-            foreach (var roleNumber in roleNumbers)
-            {
-                var ur = user.UserRoles.ToList();
-                user.UserRoles.Add(new UserRole()
-                {
-                    UserId = user.Id,
-                    RoleId = allRoles.Find(r => r?.RoleNumber == roleNumber).Id
-                });
-            }
-
-            await _context.SaveChangesAsync();
-
-            return _mapper.Map<UserDto>(user);
-        }
-		
-		
-        [TestMethod]
-        public async Task Create_UserWithRoles()
-        {
-            using (var dbContext = new RepositoryContext(_dbOptions))
-            {
-                var adName = "kkardashyan";
-                var roles = new RoleNumber[]
-                {
-                    RoleNumber.Student,
-                    RoleNumber.HR
-                };
-                await dbContext.Roles.AddRangeAsync(RoleList);
-                await dbContext.SaveChangesAsync();
-
-                var service = new UserService(dbContext, GetRoleMapper());
-                var user = await service.CreateUserWithRoles(adName, roles);
-
-                var actualUser = dbContext.Users.FirstOrDefault(u => u.ADName == adName);
-                var actualRoles = actualUser?.UserRoles.Select(ur => ur.Role.RoleNumber).ToArray();
-
-                CollectionAssert.AreEqual(actualRoles, roles);
-            }
-        }
-
-/// <summary>
-        /// Get all system roles
-        /// </summary>
-        /// <remarks>
-        /// GET api/users/roles
-        /// </remarks>
-        /// <returns>List<Role></returns>
-        /// <response code="200">All roles received successfully</response>
-        /// <response code="403">Access denied to User</response>
-        /// <response code="404">The roles doesn't exists</response>
-        /// <response code="500">Unexpected error</response>
-        [HttpGet("roles")]
-        //[Authorize(Roles = "ADMIN")]
-        [ProducesResponseType(typeof(List<Role>), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.Forbidden)]
-        [ProducesResponseType(typeof(ErrorDetails), (int)HttpStatusCode.InternalServerError)]
-        public IActionResult GetRoles()
-        {
-            var roles = Enum.GetValues(typeof(Role)).Cast<Role>();
-
-            return Ok(roles);
-        }
-		
 		To edit the meeting is necessary to save the setting UID nUID:{5}).
 		Outlook detects the UID and searches the database of the calendar if the meeting is that it may modify or cancel, adding the STATUS parameter. 
 		To cancel = STATUS: CANCELLED; 
