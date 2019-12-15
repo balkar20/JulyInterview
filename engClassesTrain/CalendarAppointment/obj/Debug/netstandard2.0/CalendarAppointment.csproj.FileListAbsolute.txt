@@ -1,0 +1,8 @@
+D:\engclasses\CalendarAppointment\bin\Debug\netstandard2.0\CalendarAppointment.deps.json
+D:\engclasses\CalendarAppointment\bin\Debug\netstandard2.0\CalendarAppointment.dll
+D:\engclasses\CalendarAppointment\bin\Debug\netstandard2.0\CalendarAppointment.pdb
+D:\engclasses\CalendarAppointment\obj\Debug\netstandard2.0\CalendarAppointment.AssemblyInfoInputs.cache
+D:\engclasses\CalendarAppointment\obj\Debug\netstandard2.0\CalendarAppointment.AssemblyInfo.cs
+D:\engclasses\CalendarAppointment\obj\Debug\netstandard2.0\CalendarAppointment.dll
+D:\engclasses\CalendarAppointment\obj\Debug\netstandard2.0\CalendarAppointment.pdb
+D:\engclasses\CalendarAppointment\obj\Debug\netstandard2.0\CalendarAppointment.csprojAssemblyReference.cache
