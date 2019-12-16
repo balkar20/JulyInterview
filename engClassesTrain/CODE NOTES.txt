@@ -1,0 +1,38 @@
+22350916-2ceb-4115-b935-4577b09fc8d0
+22350916-2ceb-4115-b935-4577b09fc8d0
+<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+
+        //public void CreateAndNotify(int modelId)
+        //{
+        //    var model = _context.Set<T>().FindAsync(modelId);
+        //    var calendar = _mapper.Map<OutlookCalendar>(model);
+        //    CalendarCrudManager.Create(calendar);
+        //    _context.Entry(model).Property("OutlookCalendar").CurrentValue = calendar;
+        //    _context.SaveChangesAsync();
+        //}
+
+        //public void UpdateAndNotify(int modelId)
+        //{
+        //    var model = _context.Set<T>().FindAsync(modelId);
+        //    var calendar = _mapper.Map<OutlookCalendar>(model);
+        //    var calendarFromModel  = (OutlookCalendar)_context.Entry(model).Property("OutlookCalendar").CurrentValue;
+        //    calendar.Id = calendarFromModel.Id;
+        //    calendar.Sequence = calendarFromModel.Sequence + 1;
+        //    CalendarCrudManager.Update(calendar);
+        //    _context.Entry(model).Property("OutlookCalendar").CurrentValue = calendar;
+        //    _context.Entry(model).State = EntityState.Modified;
+        //    _context.SaveChangesAsync();
+        //}
+
+        //public void DeleteAndNotify(int modelId)
+        //{
+        //    var model = _context.Set<T>().FindAsync(modelId);
+        //    var calendar = _mapper.Map<OutlookCalendar>(model);
+        //    var calendarFromModel = (OutlookCalendar)_context.Entry(model).Property("OutlookCalendar").CurrentValue;
+        //    calendar.Id = calendarFromModel.Id;
+        //    CalendarCrudManager.Cancel(calendar);
+        //    _context.Entry(model).Property("OutlookCalendar").CurrentValue = calendar;
+        //    _context.Entry(model).State = EntityState.Modified;
+        //    _context.SaveChangesAsync();
+        //}
