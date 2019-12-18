@@ -1,1 +1,2 @@
 ctr-7 - closeAllDocuments
+ctr-8 - Rebuid only seleccted project
