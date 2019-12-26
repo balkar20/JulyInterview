@@ -1,0 +1,25 @@
+1. Проект Calendar
+		IcsResolver.cs - формирует текст ics файла представляющего собой отправляемый календарь
+		  -сущьность Calendar состоит из сущьностей calendarEvent - события которые устанавливаются у пользователя
+		  Start End - Дата и время начала и конца события 
+		  -если событие периодичное устанавлмиваем св-во RecurrenceRules указывающее дни недели и количество этих недель до окончания 
+		  -усли изменяется событие, которое уже было добавленно в календаре - исп-ся св-во RecurrenceId - представляющее собой дату этого события у пользователя в календаре.
+		  -Сам календарь идентифицируется по Id(Guid) который используется для изменения календаря и его событий.
+		  -Сущьность Calendar сериализуется в строку для отпраки по email
+		CalendarMessageCreator.cs MailMessage - создает сообщение из ics стороки и appointment(данные календаря)
+		  -В сообщение добавляем AlternateView с календарем- его строкой и типом  (ics, typeCalendar), также вью с html для сообщения пользователю
+		static class EventHelper.cs - методы для формирования html(Исп-ся в CalendarMessageCreator) и CountWeekDays - для подчсета кол-ва дней недели до последнего повторяющегося события в календаре(Исп-ся в icsResolver)
+		NotificationMethodType.cs - enum - для опознавания типа операции (calendar.Method и calendarEvent.Status в IcsResolver)
+		Appointment, AppointmentUser - модели о пользователях и о назначаемых событиях календарей 
+2.BusinessLogic.OutlookIntegration - классы описывающие работу по отправке, созданию, внедрению наблюдателя(CalendarObserverService) Appointment из моделей Class(еденичное событие) и Schedule(повторяющегося события)
+		abstract class CalendarManager - был создан для того чтобы вынести общий фукционал для сущьностей CalendarScheduleManager и CalendarClassManager - но пока содержит только SendAndLog
+		CalendarScheduleManager(для Schedule) и CalendarClassManager(для Class) - реализуют м-д SaveCalendarAndNotify(int modelId, NotificationMethodType type) по созданию и отпраке календарей по моделям Schedule и Class соответственно  
+		CalendarHelper - м-ды исп-е в AutoMapperProfile для преобразования моделей Schedule и Class в Appointment.
+		CalendarObserverService - наблюдатель который подписывается на события сервисов ClassService и ScheduleService и в соответствии с выбранным типом модели вызывает CalendarScheduleManager или CalendarClassManager при вызове их события "public event Func<Type, int, NotificationMethodType, Task> NotifyCalendar;"
+		- наблюдатель регистрируется в Startup и внедряется в контроллер где ловит внедремые в него ClassService или ScheduleService и подписывается на их события 
+		MessageSender - отправляет сформированное сообщение(принимает IOptions<EmailSettings> - из поля EmailSettings в appsettings.json с конфигом для smtp и ограничением допустимых для отправки адресов) 
+	В AutoMapperProfile - добавлена логика в AutoMapperProfile для преобразования моделей Schedule и Class в Appointment
+3.CalendarTest - тестовые сценарии по CRUD калерей (событий) - самой отправки не происходит а лишь проверяется десериализованный календарь из сообщения и данные в базе
+				-для живой отправки можно вставить в m.SendMessage(It.IsAny<MailMessage>())).Callback<MailMessage>(m => {
+						new MessageSender(emailSettings, logger).send(m)
+				}) ---  и выше в тесте указать работающие данные для smtp ,сredentials, и кому отправлять  
