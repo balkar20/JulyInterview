@@ -1,0 +1,247 @@
+vladislav.balkarov@artezio.ru
+Qer2121balkar
+
+requires a peer of date-fns@2.1.0 but none is installed
+api/classes/1
+
+ //public CalendarObserverService( IProvider<IClassService> classServiceProvider, IProvider<IScheduleService> scheduleServiceProvider, IProvider<ILogger<LibApplication>> loggerServiceProvider, IProvider<IArtStaffService> artStaffServiceProvider, IProvider<IMessageSender> messageSenderProvider, IProvider<RepositoryContext> contextProvider, IProvider<IMapper> mapperProvider)
+        //{
+        //    _classServiceProvider = classServiceProvider;
+        //    _scheduleServiceProvider = scheduleServiceProvider;
+        //    _classServiceProvider.Get().NotifyCalendar += SaveCalendarAndNotify;
+        //    _scheduleServiceProvider.Get().NotifyCalendar += SaveCalendarAndNotify;
+
+        //    //scheduleService.NotifyCalendar += SaveCalendarAndNotify;
+        //    //classService.NotifyCalendar += SaveCalendarAndNotify;
+        //    //_calendarScheduleManager = new CalendarScheduleManager(context, mapper, artStaffService, logger, messageSender);
+        //    //_calendarClassManager = new CalendarClassManager(context, mapper, artStaffService, logger, messageSender);
+        //    _calendarScheduleManager = new CalendarScheduleManager(_contextProvider.Get(), _mapperProvider.Get(), _artStaffServiceProvider.Get(), _loggerServiceProvider.Get(), _messageSenderProvider.Get());
+        //    _calendarClassManager = new CalendarClassManager(_contextProvider.Get(), _mapperProvider.Get(), _artStaffServiceProvider.Get(), _loggerServiceProvider.Get(), _messageSenderProvider.Get());
+        //}
+        //private readonly IProvider<IClassService> _classServiceProvider;
+        //private readonly IProvider<IScheduleService> _scheduleServiceProvider;
+        //private readonly IProvider<ILogger<LibApplication>> _loggerServiceProvider;
+        //private readonly IProvider<IArtStaffService> _artStaffServiceProvider;
+        //private readonly IProvider<IMessageSender> _messageSenderProvider;
+        //private readonly IProvider<RepositoryContext> _contextProvider;
+        //private readonly IProvider<IMapper> _mapperProvider;
+		
+		 public class OldCalendarManager<T> : ICalendarManager<T> where T : class, IId
+//    {
+//        private readonly RepositoryContext _context;
+//        private readonly IMapper _mapper;
+//        private readonly IArtStaffService _artStaffService;
+//        private readonly SendCalendarData _emailSettings;
+//        private readonly ILogger<LibApplication> _logger;
+//        private readonly IMessageSender _messageSender;
+
+//        public OldCalendarManager(RepositoryContext context, IMapper mapper, IOptions<SendCalendarData> sendCalendarDataOptions, IArtStaffService artStaffService, ILogger<LibApplication> logger, IMessageSender messageSender)
+//        {
+//            _context = context;
+//            _mapper = mapper;
+//            _artStaffService = artStaffService;
+//            _emailSettings = sendCalendarDataOptions.Value;
+//            _logger = logger;
+//            _messageSender = messageSender;
+//        }
+
+//        //public async Task NewSaveAndnotyfyForModel<TModel>(int modelId, NotificationMethodType type)
+//        //{
+//        //    var calendarPropName = "OutlookCalendar";
+
+//        //    if (typeof(TModel) == typeof(Class))
+//        //    {
+                
+//        //    }
+//        //    else if (typeof(TModel) == typeof(Schedule))
+//        //    {
+                
+//        //    }
+//        //}
+
+//        //private async Task WorkWithClass
+
+//        public async Task SaveCalendarAndNotify(int modelId, NotificationMethodType type)
+//        {
+//            var contextSet = _context.Set<T>();
+
+//            var model = await contextSet
+//                .Include("Group")
+//                .Include("Room")
+//                .FirstOrDefaultAsync(m => m.Id == modelId);
+//            var calendarPropName = "OutlookCalendar";
+//            OutlookCalendar calendarFromModel;
+//            if (typeof(T) == typeof(Class))
+//            {
+//                calendarFromModel = (OutlookCalendar)_context.Entry(model).Reference(calendarPropName).CurrentValue;
+//                contextSet.Include("Schedule");
+//            }
+//            else
+//            {
+//                _context.Entry(typeof(Schedule)).Reference("Classes").Load();
+//                calendarFromModel = ((ICollection<Class>)_context.Entry(model).Reference(calendarPropName).CurrentValue).First().OutlookCalendar;
+//            }
+//            if (model == null)
+//            {
+//                throw new EntityNotFoundException(nameof(T));
+//            }
+//            var appointment = _mapper.Map<Appointment>(model);
+
+//            try
+//            {
+//                if (type == NotificationMethodType.Create)
+//                {
+//                    appointment.Id = Guid.NewGuid();
+//                    SendAndLog(NotificationMethodType.Create, appointment);
+//                    _context.Entry(model).Reference(calendarPropName).Load();
+//                    _context.Entry(model).Reference(calendarPropName).CurrentValue = new OutlookCalendar() { Id = appointment.Id };
+//                }
+//                if (type == NotificationMethodType.Update)
+//                {
+//                    appointment.Id = calendarFromModel.Id;
+//                    appointment.Sequence = calendarFromModel.Sequence + 1;
+//                    SendAndLog(NotificationMethodType.Update, appointment);
+//                    _context.Entry(model).Reference(calendarPropName).Load();
+//                    _context.Entry(model).Reference(calendarPropName).CurrentValue = new OutlookCalendar() { Id = appointment.Id, Sequence = appointment.Sequence };
+//                    _context.Entry(model).Reference(calendarPropName).IsModified = true;
+//                }
+//                if (type == NotificationMethodType.Delete)
+//                {
+//                    appointment.Id = calendarFromModel.Id;
+//                    SendAndLog(NotificationMethodType.Delete, appointment);
+//                    _context.Entry(model).Reference(calendarPropName).Load();
+//                    _context.Entry(model).Reference(calendarPropName).CurrentValue = null;
+//                    _context.Entry(model).Reference(calendarPropName).IsModified = true;
+//                }
+
+//                _context.Entry(model).State = EntityState.Modified;
+//                await _context.SaveChangesAsync();
+//            }
+//            catch (Exception e)
+//            {
+//                _logger.LogError($"Exception was thrown while operating appointment with message: {e.Message}");
+//            }
+//        }
+
+//        private async Task<Appointment> ResolveAppointment(int modelId)
+//        {
+//            var contextSet = _context.Set<T>();
+//            OutlookCalendar calendar;
+//            var model = await contextSet
+//                .Include("Group")
+//                .Include("Room")
+//                .FirstOrDefaultAsync(m => m.Id == modelId);
+
+//            Appointment appointment = _mapper.Map<Appointment>(model);
+//            if (typeof(T) == typeof(Class))
+//            {
+//                contextSet.Include("Schedule");
+//                calendar = (OutlookCalendar)_context.Entry(model).Reference("OutlookCalendar").CurrentValue;
+
+//                if ((model as Class)?.Schedule == null)
+//                {
+//                    appointment.IsSingleEvent = true;
+//                }
+//            }
+//            if (typeof(T) == typeof(Schedule))
+//            {
+//                contextSet.Include("Classes");
+//                var classes = (ICollection<Class>)_context.Entry(model).Collection("Classes").CurrentValue;
+//                calendar = classes.First().OutlookCalendar;
+//            }
+
+//            _context.Entry(model).Reference("Group").Load();
+//            var users = ((Group)_context.Entry(model).Reference("Group").CurrentValue).UserGroups.Select(ug => ug.User).ToList();
+//            appointment.Users =
+//                (await _artStaffService.GetEmployeesAsync<AppointmentUser>(au =>
+//                    users.Select(u => u.ADName).Contains(au.ObjectEmployee.Login))).ToList();
+//            var teacher = (User)_context.Entry(model).Reference("Group").EntityEntry.Reference("Teacher").CurrentValue;
+//            var teacherEmployee = (await _artStaffService.GetEmployeesAsync<AppointmentUser>(
+//                au => au.ObjectEmployee.Login == teacher.ADName)).FirstOrDefault();
+//            if (teacherEmployee != null)
+//            {
+//                appointment.Organizer = teacherEmployee;
+//            }
+
+//            return appointment;
+//        }
+
+//        protected void SendAndLog(NotificationMethodType type, Appointment appointment)
+//        {
+//            try
+//            {
+//                _messageSender.SendMessage(CalendarMessageCreator.CreateEventMessage(appointment, IcsResolver.ResolveIcsFromModel(appointment, type)));
+//                _logger.LogInformation($"Send appointment  events to attendees was competed successfully!");
+//            }
+//            catch (Exception e)
+//            {
+//                _logger.LogError($"Exception was thrown while sending appointment with message: {e.Message}");
+//                throw;
+//            }
+//        }
+
+//        void ResetClassesCalendars(Schedule schedule, Appointment appointment)
+//        {
+//            foreach (var scheduleClass in schedule.Classes)
+//            {
+//                if (appointment == null)
+//                {
+//                    scheduleClass.OutlookCalendar = null;
+//                    scheduleClass.Cancelled = true;
+//                }
+//                scheduleClass.OutlookCalendar = new OutlookCalendar()
+//                {
+//                    Id = appointment.Id,
+//                    Sequence = appointment.Sequence
+//                };
+//            }
+//        }
+//    }
+
+
+
+
+
+public interface IProvider<T>
++    {
++        T Get();
++    }
+
+public class Provider<T> : IProvider<T>
++    {
++        IServiceProvider serviceProvider;
++        public Provider(IServiceProvider serviceProvider)
++        {
++            this.serviceProvider = serviceProvider;
++        }
++
++        T IProvider<T>.Get()
++        {
++            return (T)serviceProvider.GetService(typeof(T));
++        }
++    }
+
+
+
+    [Serializable]
+    public class CalendarToSerialize
+    {
+        public Guid Id { get; set; }
+        public int Sequence { get; set; }
+    }
+	
+	public static class FileResourceHelper
+
+    {
+
+        public static string GetTestDataFolder(string testDataFolder)
+        {
+            string startupPath = Environment.CurrentDirectory;
+            var pathItems = startupPath.Split(Path.DirectorySeparatorChar);
+            var pos = pathItems.Reverse().ToList().FindIndex(x => string.Equals("bin", x));
+            string projectPath = String.Join(Path.DirectorySeparatorChar.ToString(), pathItems.Take(pathItems.Length - pos - 1));
+            return Path.Combine(projectPath, "TestData", testDataFolder);
+        }
+    }
+	
+	{"Id":"37685162-1ccb-4359-8dfe-757da9f8b78b","Users":null,"Sequence":0}
