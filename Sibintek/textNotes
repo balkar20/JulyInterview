@@ -1,2 +1,20 @@
-1)откуда joobs gets hits executable func
+﻿1)откуда joobs gets hits executable func(Job executes in AppCommonClient inheritands in DoRun() )
+
 2)Modules.InitContext- call InitContext to each module property and pass to Externals 
+
+3)AppPartModDummyMainBaseJobItemGetClient & AppPartModDummyMainBaseJobListGetClient overrides DoRun() 
+from AppCommonClient and use in it protected method Show()
+
+4)CoreBaseExecutionResultWithData = CoreBaseExecutionResult(properties ErrorMessages, SuccessMessages, WarningMessages) + property Data
+
+5)ModDummyMainBaseJobItemGetOutput(properties DataBaseObjectDummyMain, DataBaseObjectDummyMain[] etc...) 
+its Data in CoreBaseExecutionResultWithData AND IT WE PRINT IN CONSOLE
+
+6)Job - ModDummyMainBaseJobItemGetService inherited from CoreBaseExecutableServiceAsyncWithInputAndOutput
+which has injected property Executable which invokes in Execute(TInput) method and returnes Task<TOutput>
+in our case it CoreBaseExecutionResultWithData and IT ModDummyMainBaseJobItemGetService LIVES as JobItemGet
+PROPERTY in ModDummyMainBaseJobs WHICH LIVES IN ModDummyMainBaseContext AS Jobs PROPERTY
+
+7)!!!ModDummyMainBaseService!!! - GetItem, GetList, SaveItem, DeleteItem, ETC TO INTERACT WITH DATABASE
+WHICH REAL PASSED TO JOB CONSTRUCTOR EXECUTABLE METHODS
+
