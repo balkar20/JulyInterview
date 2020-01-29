@@ -1,4 +1,4 @@
-﻿1)откуда joobs gets hits executable func(Job executes in AppCommonClient inheritands in DoRun() )
+﻿1)Where joobs gets hits executable func(Job executes in AppCommonClient inheritands in DoRun() )
 
 2)Modules.InitContext- call InitContext to each module property and pass to Externals 
 
@@ -17,4 +17,6 @@ PROPERTY in ModDummyMainBaseJobs WHICH LIVES IN ModDummyMainBaseContext AS Jobs 
 
 7)!!!ModDummyMainBaseService!!! - GetItem, GetList, SaveItem, DeleteItem, ETC TO INTERACT WITH DATABASE
 WHICH REAL PASSED TO JOB CONSTRUCTOR EXECUTABLE METHODS
+
+8)In RootBaseConfigurator in Configureservices calls extension method services.DataEntityExtConfigureDbContext(FuncGetDataEntityDbFactory); - which added DataEntityDbContext to sreviceCollection(тоже самое с Identity)
 
