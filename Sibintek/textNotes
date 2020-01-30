@@ -20,3 +20,10 @@ WHICH REAL PASSED TO JOB CONSTRUCTOR EXECUTABLE METHODS
 
 8)In RootBaseConfigurator in Configureservices calls extension method services.DataEntityExtConfigureDbContext(FuncGetDataEntityDbFactory); - which added DataEntityDbContext to sreviceCollection(тоже самое с Identity)
 
+9)DataEntityObjectProduct - Object with virtual navigaton properties and methopds create and CreateObjectProduct
+
+10) Loaders - LoadDatyaFrom (DataEntityObjectProduct source) - set his own property Data with soucre object data
+
+11)ModProductBaseJobItemGetInput - dataid dataname use for ModProductBaseExtApplyFiltering in iquerable and apply search filter in database
+
+12)DataEntitySchemaProduct!!!! - Conigure (EntityTypeBuilder ) => seedTestData
