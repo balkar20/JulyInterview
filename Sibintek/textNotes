@@ -27,3 +27,6 @@ WHICH REAL PASSED TO JOB CONSTRUCTOR EXECUTABLE METHODS
 11)ModProductBaseJobItemGetInput - dataid dataname use for ModProductBaseExtApplyFiltering in iquerable and apply search filter in database
 
 12)DataEntitySchemaProduct!!!! - Conigure (EntityTypeBuilder ) => seedTestData
+
+13)RootAppApiBaseConfigurator -- ConfigureServices - add serviceds ModDummyMainBaseContexts
+and create module list with ModProductBaseModule, ModDummyMainBaseModule and ModAuthBaseModule
