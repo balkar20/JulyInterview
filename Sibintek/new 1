@@ -1,0 +1,47 @@
+DummyMain
+DummyOneToMany
+DummyManyToMany
+DummyMainDummyManyToMany
+
+Product
+ProductCategory
+ProductFeature
+ProductProductFeature
+
+cd C:\Vlad\net-core\Vlad2020.Data.Entity.SqlServer
+
+{
+  "ConnectionString": "Data Source=DESKTOP-V7NHSO6;Initial Catalog=Vlad2020;Integrated Security=True"
+}
+
+dotnet ef migrations add 0000002
+
+dotnet ef database update 0000001
+dotnet ef database update 0000002
+
+in CoreBaseCommonConfigProviderJson for migration:
+Environment = new CoreBaseEnvironment()
+            {
+                BasePath = System.AppContext.BaseDirectory,
+                Name = "j"
+            }; 
+
+product
+product-category
+product-feature
+product-product-feature
+
+npm run hm-start
+
+cd C:\Sibintek\Makc2020\javascript\makc2020-angular-redux
+cd C:\Vlad\javascript\vlad2020-angular-redux\
+
+console.log("constructor AppSkinModDummyMainComponent!!!!!!!!!!!! ")
+
+vbalkarov
+vladislav.balkarov@artezio.com
+
+Sibintek\BalkarovVA
+old password: efjy?8Hp
+new password: Qer2121balkar
+
