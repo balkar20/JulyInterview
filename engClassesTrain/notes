@@ -80,6 +80,11 @@ INSERT INTO public."UserRole"(
 VALUES (1, 1),
 VALUES (1, 4),
 
+balkar20
+3740737VB
+Qer2121balkar
+2121Qerbalkar
+2121qerbalkar
 
 ---------------------------acebdf13572468
 Content-Disposition: form-data; name="Id" 
@@ -117,7 +122,26 @@ Content-Type: image/jpg
     body: formData,
   });
 
-		To edit the meeting is necessary to save the setting UID nUID:{5}).
-		Outlook detects the UID and searches the database of the calendar if the meeting is that it may modify or cancel, adding the STATUS parameter. 
-		To cancel = STATUS: CANCELLED; 
-		To Edit only send the same data with the same UID meeting and the meeting will be rescheduled.
+2121qerbalkar
+Qer2121balkar
+_12121Qer
+
+BDRV-1373
+
+License
+DummyMain
+http://localhost:5003/api/license/%D0%B5xpiration-date?currentDate=9/17/2012
+
+default.aspx - 419 row - you can call service logout
+XmlDb - 1339 - uoy can call service additionalUser - you can add job service Job
+XmlDb - 1037 - ip adress
+1 - Method addTag - PageSrtdbCommLineSourceView - row 141 - you can add job service Job
+
+form id="incnlform"
+
+"#menu_login").click - 419 row defafult.aspx - exit
+
+
+---------------------------------------------------------------
+1)Рефакторинг, исправления замечаний по пулл реквесту в новом проекте - добавление логики работы с ресурсами, измненение сервиса.
+1)Рефакторинг, исправления замечаний по пулл реквесту в старом проекте - изменения в соответствии с новым проектом
