@@ -1,0 +1,20 @@
+1.	Модуль БДРВ
+2.	Подсистема отчетов F
+3.	Модуль сбора данных с неавтоматизированных установок (ручной ввод) F
+4.	Модуль инженерных расчетов
+5.	Модуль импорта данных 
+6.	Модуль мониторинга (служебные теги и опрос модулей)
+7.	Редактор мнемосхем F
+8.	Подсистема экспорта данных F
+9.	Модуль АПС и уведомлений (по каналам)
+10.	Модуль отслеживания и фиксации событий на основании установок сигнализаций по отклонениям
+
+"Подсистема отчетов",
+"Модуль сбора данных с неавтоматизированных установок (ручной ввод)",
+"Редактор мнемосхем",
+"Подсистема экспорта данных"
+[ "APCNotification", "BDRB", "NonAutomatedEquipmentDataCollection", "EventTrackingFixation", "MnеmoSchemeEditor", "Monitoring", "ReportSubsystem", "EngineeringCalculation", "DataExportSubsystem", "DataImport", "APCNotification" ]
+BDRV-1278
+
+ allowReportEdit = ((_additionalUnits.Contains(ModLicenseEnumAdditionalUnits.ReportSubsystem)) && (isAdmin || (_xmlDb.m_rights.ContainsKey("report") && _xmlDb.m_rights["report"].IndexOf("изменение") >= 0))) ? "true":"false";
+            allowMnemoEdit = ((_additionalUnits.Contains(ModLicenseEnumAdditionalUnits.MnеmoSchemeEditor)) && (isAdmin || (_xmlDb.m_rights.ContainsKey("mnemo") && _xmlDb.m_rights["mnemo"].IndexOf("изменение") >= 0))) ? "true":"false";

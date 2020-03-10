@@ -23,3 +23,6 @@
 				-для живой отправки можно вставить в m.SendMessage(It.IsAny<MailMessage>())).Callback<MailMessage>(m => {
 						new MessageSender(emailSettings, logger).send(m)
 				}) ---  и выше в тесте указать работающие данные для smtp ,сredentials, и кому отправлять  
+2121qerbalkar
+Qer2121balkar
+2121Qerbalkar
