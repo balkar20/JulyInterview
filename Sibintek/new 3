@@ -1,0 +1,59 @@
+public async Task<User> UpdateAsync(int userId, ICollection<string> roleNames)
+        {
+            var allRoles = await _context.Roles.ToListAsync();
+
+            var user = await _context.Users
+                .Include(u => u.UserRoles)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null)
+            {
+                throw new AccessDeniedException($"User with Id:{userId} doesn't exists"); 
+            }
+            var userRoles = user.UserRoles.ToList();
+            if (userRoles?
+                    .FirstOrDefault(u => u.Role.RoleNumber == RoleNumber.ADMIN) != null 
+                && !roleNames
+                    .Contains(RoleNumber.ADMIN.ToString()))
+            {
+                throw new AccessDeniedException($"Administrators are not allowed to remove a role: {RoleNumber.ADMIN.ToString()}");
+            }
+
+            for (int i = 0; i < userRoles.Count; i++)
+            {
+                if (!roleNames.Contains(userRoles[i].Role.RoleNumber.ToString()))
+                {
+                    user?.UserRoles.Remove(userRoles[i]);
+                }
+            }
+
+            foreach (var roleName in roleNames)
+            {
+                var foundedRole = user?
+                    .UserRoles.
+                    FirstOrDefault(ur => string.Compare(roleName, ur.Role.RoleNumber.ToString(),
+                                                                        StringComparison.InvariantCulture) == 0);
+                if (foundedRole == null)
+                {
+                    var role = allRoles.First(r =>
+                        string.Compare(roleName, r.RoleNumber.ToString(), StringComparison.InvariantCulture) == 0);
+
+                    user?.UserRoles.Add(new UserRole()
+                    {
+                        RoleId = role.Id,
+                        UserId = userId
+                    });
+                }
+            }
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
+		
+		
+	
+	int coount = Request.Cookies.Count;
+            foreach (var keyValuePair in Request.Cookies)
+            {
+                var cook = keyValuePair.Key;
+
+            }
